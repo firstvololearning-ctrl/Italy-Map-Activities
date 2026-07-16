@@ -3,13 +3,10 @@ const italyData = [
     id: "valle-daosta",
     region: "Valle d'Aosta",
     capital: "Aosta",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Monte Cervino",
+      image: "assets/landmarks/landmark-16.png"
     },
     x: 9.5,
     y: 13.3
@@ -18,13 +15,10 @@ const italyData = [
     id: "piemonte",
     region: "Piemonte",
     capital: "Torino",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Basilica di Superga",
+      image: "assets/landmarks/landmark-20.png"
     },
     x: 13.5,
     y: 20.3
@@ -33,13 +27,10 @@ const italyData = [
     id: "liguria",
     region: "Liguria",
     capital: "Genova",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Cinque Terre",
+      image: "assets/landmarks/landmark-23.png"
     },
     x: 22.9,
     y: 28.3
@@ -48,13 +39,10 @@ const italyData = [
     id: "lombardia",
     region: "Lombardia",
     capital: "Milano",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Duomo di Milano",
+      image: "assets/landmarks/landmark-24.png"
     },
     x: 29.7,
     y: 14.7
@@ -63,13 +51,10 @@ const italyData = [
     id: "trentino-alto-adige",
     region: "Trentino-Alto Adige",
     capital: "Trento",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Tre Cime di Lavaredo",
+      image: "assets/landmarks/landmark-14.png"
     },
     x: 43.3,
     y: 7.3
@@ -78,13 +63,10 @@ const italyData = [
     id: "veneto",
     region: "Veneto",
     capital: "Venezia",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Basilica di San Marco",
+      image: "assets/landmarks/landmark-17.png"
     },
     x: 48.9,
     y: 15.9
@@ -93,13 +75,10 @@ const italyData = [
     id: "friuli-venezia-giulia",
     region: "Friuli-Venezia Giulia",
     capital: "Trieste",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Castello di Miramare",
+      image: "assets/landmarks/landmark-26.png"
     },
     x: 60.4,
     y: 11.2
@@ -108,13 +87,10 @@ const italyData = [
     id: "emilia-romagna",
     region: "Emilia-Romagna",
     capital: "Bologna",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Due Torri",
+      image: "assets/landmarks/landmark-11.png"
     },
     x: 40.3,
     y: 25.1
@@ -123,13 +99,10 @@ const italyData = [
     id: "toscana",
     region: "Toscana",
     capital: "Firenze",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Duomo di Firenze",
+      image: "assets/landmarks/landmark-04.png"
     },
     x: 40.5,
     y: 35.2
@@ -138,13 +111,10 @@ const italyData = [
     id: "umbria",
     region: "Umbria",
     capital: "Perugia",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Basilica di San Francesco",
+      image: "assets/landmarks/landmark-15.png"
     },
     x: 50.4,
     y: 39.8
@@ -153,13 +123,10 @@ const italyData = [
     id: "marche",
     region: "Marche",
     capital: "Ancona",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Palazzo Ducale di Urbino",
+      image: "assets/landmarks/landmark-10.png"
     },
     x: 58.4,
     y: 36.5
@@ -168,13 +135,10 @@ const italyData = [
     id: "lazio",
     region: "Lazio",
     capital: "Roma",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Colosseum",
+      image: "assets/landmarks/landmark-01.png"
     },
     x: 51.1,
     y: 49.4
@@ -198,13 +162,10 @@ const italyData = [
     id: "molise",
     region: "Molise",
     capital: "Campobasso",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Castello Monforte",
+      image: "assets/landmarks/landmark-27.png"
     },
     x: 69.8,
     y: 51.6
@@ -213,13 +174,10 @@ const italyData = [
     id: "campania",
     region: "Campania",
     capital: "Napoli",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Mount Vesuvius",
+      image: "assets/landmarks/landmark-19.png"
     },
     x: 68.8,
     y: 59.2
@@ -228,13 +186,10 @@ const italyData = [
     id: "puglia",
     region: "Puglia",
     capital: "Bari",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Alberobello Trulli",
+      image: "assets/landmarks/landmark-08.png"
     },
     x: 85.3,
     y: 58.2
@@ -243,13 +198,10 @@ const italyData = [
     id: "basilicata",
     region: "Basilicata",
     capital: "Potenza",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Sassi di Matera",
+      image: "assets/landmarks/landmark-12.png"
     },
     x: 80.2,
     y: 63.4
@@ -258,13 +210,10 @@ const italyData = [
     id: "calabria",
     region: "Calabria",
     capital: "Catanzaro",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Tropea",
+      image: "assets/landmarks/landmark-25.png"
     },
     x: 82.6,
     y: 73.6
@@ -273,13 +222,10 @@ const italyData = [
     id: "sardegna",
     region: "Sardegna",
     capital: "Cagliari",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Su Nuraxi",
+      image: "assets/landmarks/landmark-07.png"
     },
     x: 17.4,
     y: 65
@@ -288,13 +234,10 @@ const italyData = [
     id: "sicilia",
     region: "Sicilia",
     capital: "Palermo",
-    food: {
-      name: "",
-      image: ""
-    },
+    food: { name: "", image: "" },
     landmark: {
-      name: "",
-      image: ""
+      name: "Mount Etna",
+      image: "assets/landmarks/landmark-06.png"
     },
     x: 57.8,
     y: 88.8

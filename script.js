@@ -6,6 +6,8 @@ const DEVELOPER_MODE = false;
 const regions = italyData;
 
 let gameMode = "regions";
+let correctCount = 0;
+let selectedZone = null;
 
 const cardContainer = document.querySelector("#regionCards");
 const dropZoneContainer = document.querySelector("#dropZones");
@@ -17,8 +19,9 @@ const shuffleButton = document.querySelector("#shuffleButton");
 const resetButton = document.querySelector("#resetButton");
 const playAgainButton = document.querySelector("#playAgainButton");
 
-let correctCount = 0;
-let selectedZone = null;
+const modeButtons = document.querySelectorAll(".mode-button");
+const panelHeading = document.querySelector("#panelHeading");
+const instructions = document.querySelector("#instructions");
 
 function shuffle(array) {
   const copy = [...array];
@@ -45,6 +48,39 @@ function getCardText(region) {
   }
 }
 
+/* Scroll the page when a dragged card approaches
+   the top or bottom of the browser window. */
+function handleDragAutoScroll(event) {
+  const pointerY = event.clientY;
+
+  if (pointerY <= 0) {
+    return;
+  }
+
+  const edgeDistance = 180;
+  const viewportHeight = window.innerHeight;
+  const maximumScroll = 35;
+
+  if (pointerY < edgeDistance) {
+    const strength =
+      (edgeDistance - pointerY) / edgeDistance;
+
+    const amount =
+      Math.max(5, Math.ceil(maximumScroll * strength));
+
+    window.scrollBy(0, -amount);
+  } else if (pointerY > viewportHeight - edgeDistance) {
+    const strength =
+      (pointerY - (viewportHeight - edgeDistance)) /
+      edgeDistance;
+
+    const amount =
+      Math.max(5, Math.ceil(maximumScroll * strength));
+
+    window.scrollBy(0, amount);
+  }
+}
+
 function createCards() {
   cardContainer.innerHTML = "";
 
@@ -52,9 +88,26 @@ function createCards() {
     const card = document.createElement("div");
 
     card.className = "region-card";
-    card.textContent = getCardText(region);
     card.draggable = true;
     card.dataset.id = String(region.id);
+
+    if (gameMode === "landmarks") {
+      const image = document.createElement("img");
+
+      image.className = "card-image";
+      image.src = region.landmark.image;
+      image.alt = region.landmark.name;
+      image.draggable = false;
+
+      const label = document.createElement("span");
+
+      label.className = "card-label";
+      label.textContent = region.landmark.name;
+
+      card.append(image, label);
+    } else {
+      card.textContent = region.region;
+    }
 
     card.addEventListener("dragstart", (event) => {
       const draggedId = String(region.id);
@@ -64,6 +117,8 @@ function createCards() {
 
       card.classList.add("dragging");
     });
+
+    card.addEventListener("drag", handleDragAutoScroll);
 
     card.addEventListener("dragend", () => {
       card.classList.remove("dragging");
@@ -82,7 +137,8 @@ function createZones() {
 
     zone.className = "drop-zone";
     zone.dataset.id = String(region.id);
-    zone.dataset.debug = String(index + 1).padStart(2, "0");
+    zone.dataset.debug =
+      String(index + 1).padStart(2, "0");
 
     zone.style.left = `${region.x}%`;
     zone.style.top = `${region.y}%`;
@@ -93,7 +149,8 @@ function createZones() {
 
     if (DEVELOPER_MODE) {
       zone.classList.add("developer-zone");
-      zone.title = `${region.region}: click, then use arrow keys`;
+      zone.title =
+        `${region.region}: click, then use arrow keys`;
 
       zone.addEventListener("click", (event) => {
         event.stopPropagation();
@@ -115,7 +172,8 @@ function createZones() {
       event.preventDefault();
       zone.classList.remove("drag-over");
 
-      const droppedId = event.dataTransfer.getData("text/plain");
+      const droppedId =
+        event.dataTransfer.getData("text/plain");
 
       if (droppedId === String(region.id)) {
         placeCorrect(zone, region);
@@ -130,7 +188,9 @@ function createZones() {
 
 function selectZone(zone, region) {
   if (selectedZone) {
-    selectedZone.element.classList.remove("selected-zone");
+    selectedZone.element.classList.remove(
+      "selected-zone"
+    );
   }
 
   selectedZone = {
@@ -142,12 +202,14 @@ function selectZone(zone, region) {
 
   console.clear();
   console.log(`Selected: ${region.region}`);
+
   printCoordinates(region);
 }
 
 function printCoordinates(region) {
   console.log(
-    `${region.region}: x: ${Number(region.x).toFixed(1)}, y: ${Number(region.y).toFixed(1)}`
+    `${region.region}: x: ${Number(region.x).toFixed(1)}, ` +
+    `y: ${Number(region.y).toFixed(1)}`
   );
 
   console.log(`
@@ -218,9 +280,21 @@ function placeCorrect(zone, region) {
   zone.classList.remove("debug-zone");
   zone.classList.remove("selected-zone");
 
-  zone.innerHTML = `
-    <span class="placed-label">${getCardText(region)}</span>
-  `;
+  if (gameMode === "landmarks") {
+    zone.innerHTML = `
+      <img
+        class="placed-landmark"
+        src="${region.landmark.image}"
+        alt="${region.landmark.name}"
+      >
+    `;
+  } else {
+    zone.innerHTML = `
+      <span class="placed-label">
+        ${region.region}
+      </span>
+    `;
+  }
 
   const matchingCard = cardContainer.querySelector(
     `.region-card[data-id="${region.id}"]`
@@ -254,9 +328,37 @@ function updateProgress() {
   progressText.textContent =
     `${correctCount} of ${regions.length} correct`;
 
-  const percentage = (correctCount / regions.length) * 100;
+  const percentage =
+    (correctCount / regions.length) * 100;
 
   progressFill.style.width = `${percentage}%`;
+}
+
+function setGameMode(mode) {
+  gameMode = mode;
+
+  modeButtons.forEach((button) => {
+    const isActive =
+      button.dataset.mode === mode;
+
+    button.classList.toggle("active", isActive);
+  });
+
+  if (mode === "landmarks") {
+    panelHeading.textContent =
+      "Italian Landmarks";
+
+    instructions.textContent =
+      "Drag each landmark onto its correct region.";
+  } else {
+    panelHeading.textContent =
+      "Region Names";
+
+    instructions.textContent =
+      "Drag a name onto the correct colored region.";
+  }
+
+  resetGame();
 }
 
 function resetGame() {
@@ -279,17 +381,40 @@ function shuffleUnmatchedCards() {
   });
 }
 
-document.addEventListener("keydown", moveSelectedZone);
+document.addEventListener(
+  "keydown",
+  moveSelectedZone
+);
 
 document.addEventListener("click", () => {
   if (selectedZone) {
-    selectedZone.element.classList.remove("selected-zone");
+    selectedZone.element.classList.remove(
+      "selected-zone"
+    );
+
     selectedZone = null;
   }
 });
 
-shuffleButton.addEventListener("click", shuffleUnmatchedCards);
-resetButton.addEventListener("click", resetGame);
-playAgainButton.addEventListener("click", resetGame);
+modeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    setGameMode(button.dataset.mode);
+  });
+});
+
+shuffleButton.addEventListener(
+  "click",
+  shuffleUnmatchedCards
+);
+
+resetButton.addEventListener(
+  "click",
+  resetGame
+);
+
+playAgainButton.addEventListener(
+  "click",
+  resetGame
+);
 
 resetGame();

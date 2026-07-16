@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Match the Italian Regions</title>
+  <title>Italy Map Activities</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -27,20 +27,43 @@
         <p class="subtitle">
           Discover the Regions of Italy
         </p>
+
+        <div class="mode-buttons" aria-label="Choose an activity">
+          <button
+            class="mode-button active"
+            data-mode="regions"
+            type="button"
+          >
+            Regions
+          </button>
+
+          <button
+            class="mode-button"
+            data-mode="landmarks"
+            type="button"
+          >
+            Landmarks
+          </button>
+        </div>
       </header>
 
       <section class="name-panel">
-        <h2>Region Names</h2>
+        <h2 id="panelHeading">Region Names</h2>
 
-        <p class="instructions">
+        <p id="instructions" class="instructions">
           Drag a name onto the correct colored region.
         </p>
 
         <div id="regionCards" class="region-cards"></div>
 
         <div class="button-row">
-          <button id="shuffleButton" type="button">Shuffle</button>
-          <button id="resetButton" type="button">Reset</button>
+          <button id="shuffleButton" type="button">
+            Shuffle
+          </button>
+
+          <button id="resetButton" type="button">
+            Reset
+          </button>
         </div>
       </section>
 
@@ -71,17 +94,21 @@
   <div id="completionMessage" class="completion-message" hidden>
     <div class="completion-card">
       <div class="celebration">🎉</div>
+
       <h2>Fantastico!</h2>
-      <p>You matched all 20 Italian regions.</p>
-      <button id="playAgainButton" type="button">Play Again</button>
+
+      <p id="completionText">
+        You matched all 20 Italian regions.
+      </p>
+
+      <button id="playAgainButton" type="button">
+        Play Again
+      </button>
     </div>
   </div>
 
   <script src="data/italy-data.js"></script>
   <script src="script.js"></script>
-</body>
 
-<script src="data/italy-data.js"></script>
-<script src="script.js"></script>
 </body>
 </html>
