@@ -1,0 +1,318 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #24352d;
+  background: #f4f1ea;
+}
+
+button {
+  font: inherit;
+}
+
+.page-header {
+  padding: 22px 20px;
+  text-align: center;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.page-header h1 {
+  margin: 0 0 6px;
+  font-size: clamp(28px, 4vw, 44px);
+}
+
+.page-header p {
+  margin: 0;
+  font-size: 17px;
+  color: #607068;
+}
+
+.activity-layout {
+  display: grid;
+  grid-template-columns: minmax(500px, 2fr) minmax(290px, 1fr);
+  gap: 22px;
+  width: min(1450px, 96%);
+  margin: 24px auto;
+}
+
+.map-panel,
+.name-panel {
+  padding: 20px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 8px 24px rgba(48, 54, 49, 0.1);
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.progress-track {
+  flex: 1;
+  height: 13px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e7e5dc;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: #5f8f6f;
+  transition: width 0.3s ease;
+}
+
+.map-board {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 2px solid #e4ded2;
+  border-radius: 16px;
+  background: white;
+}
+
+.map-board > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+.drop-zones {
+  position: absolute;
+  inset: 0;
+}
+
+.drop-zone {
+  position: absolute;
+  width: 8.5%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: 3px dashed transparent;
+  border-radius: 50%;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.drop-zone.drag-over {
+  border-color: #315f45;
+  background: rgba(89, 147, 107, 0.24);
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+.drop-zone.correct {
+  border: 3px solid #4f9565;
+  background: rgba(80, 158, 103, 0.22);
+}
+
+.placed-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  max-width: 155px;
+  transform: translate(-50%, -50%);
+  padding: 6px 9px;
+  border: 2px solid #315c44;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+  color: #234632;
+font-size: clamp(8px, 1vw, 13px);
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+  pointer-events: none;
+}
+
+.name-panel h2 {
+  margin: 0 0 4px;
+  text-align: center;
+}
+
+.instructions {
+  margin: 0 0 16px;
+  color: #657269;
+  text-align: center;
+}
+
+.region-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.region-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 9px 10px;
+  border: 2px solid #d9d1c2;
+  border-radius: 11px;
+  background: #fffdf8;
+  cursor: grab;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+  transition:
+    transform 0.18s ease,
+    opacity 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.region-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.11);
+}
+
+.region-card:active {
+  cursor: grabbing;
+}
+
+.region-card.dragging {
+  opacity: 0.4;
+  transform: scale(0.96);
+}
+
+.region-card.matched {
+  display: none;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.button-row button,
+.completion-card button {
+  flex: 1;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: #805936;
+  color: white;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.button-row button:hover,
+.completion-card button:hover {
+  background: #65442a;
+}
+
+.wrong-shake {
+  animation: wrongShake 0.35s ease;
+}
+
+@keyframes wrongShake {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+
+  25% {
+    transform: translate(calc(-50% - 7px), -50%);
+  }
+
+  75% {
+    transform: translate(calc(-50% + 7px), -50%);
+  }
+}
+
+.completion-message {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(24, 34, 28, 0.62);
+}
+
+.completion-message[hidden] {
+  display: none;
+}
+
+.completion-card {
+  width: min(410px, 100%);
+  padding: 34px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.completion-card h2 {
+  margin: 4px 0;
+  font-size: 34px;
+}
+
+.celebration {
+  font-size: 54px;
+}
+
+/* Turn this class on temporarily while positioning zones. */
+.debug-zone {
+  border-color: rgba(0, 0, 0, 0.45);
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.debug-zone::after {
+  content: attr(data-debug);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+@media (max-width: 950px) {
+  .activity-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .region-cards {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .activity-layout {
+    width: 100%;
+    margin: 12px auto;
+  }
+
+  .map-panel,
+  .name-panel {
+    padding: 12px;
+    border-radius: 0;
+  }
+
+  .region-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .placed-label {
+    padding: 3px 5px;
+    font-size: 8px;
+  }
+}
+.developer-zone {
+  cursor: pointer;
+}
