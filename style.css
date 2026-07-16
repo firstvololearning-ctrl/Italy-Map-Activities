@@ -484,3 +484,23 @@ button {
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
+.website-link {
+  display: block;
+  width: fit-content;
+  margin: 0 0 14px;
+  color: #805936;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: underline;
+  position: relative;
+  z-index: 5;
+}
+
+.website-link:visited {
+  color: #805936;
+}
+
+.website-link:hover {
+  color: #65442a;
+}
