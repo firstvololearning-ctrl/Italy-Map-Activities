@@ -25,7 +25,7 @@ const developerMode = false;
 const peopleData = [
   {
     name: "Dante Alighieri",
-    region: "Tuscany",
+    region: "Toscana",
     field: "Literature",
     category: "Writer and Poet",
     blurb:
@@ -41,7 +41,7 @@ const peopleData = [
   },
   {
     name: "Paolo Borsellino",
-    region: "Sicily",
+    region: "Sicilia",
     field: "Justice",
     category: "Judge",
     blurb:
@@ -65,7 +65,7 @@ const peopleData = [
   },
   {
     name: "Samantha Cristoforetti",
-    region: "Born in Lombardy; grew up in Trentino-Alto Adige",
+    region: "Born in Lombardia; grew up in Trentino-Alto Adige",
     field: "Space Exploration",
     category: "Astronaut and Engineer",
     blurb:
@@ -73,7 +73,7 @@ const peopleData = [
   },
   {
     name: "Leonardo da Vinci",
-    region: "Tuscany",
+    region: "Toscana",
     field: "Art and Science",
     category: "Artist, Inventor, and Scientist",
     blurb:
@@ -81,7 +81,7 @@ const peopleData = [
   },
   {
     name: "Grazia Deledda",
-    region: "Sardinia",
+    region: "Sardegna",
     field: "Literature",
     category: "Novelist",
     blurb:
@@ -89,7 +89,7 @@ const peopleData = [
   },
   {
     name: "Giovanni Falcone",
-    region: "Sicily",
+    region: "Sicilia",
     field: "Justice",
     category: "Judge",
     blurb:
@@ -105,7 +105,7 @@ const peopleData = [
   },
   {
     name: "Galileo Galilei",
-    region: "Tuscany",
+    region: "Toscana",
     field: "Science",
     category: "Astronomer, Physicist, and Mathematician",
     blurb:
@@ -113,7 +113,7 @@ const peopleData = [
   },
   {
     name: "Rita Levi-Montalcini",
-    region: "Piedmont",
+    region: "Piemonte",
     field: "Science and Medicine",
     category: "Neurologist",
     blurb:
@@ -121,7 +121,7 @@ const peopleData = [
   },
   {
     name: "Alessandro Manzoni",
-    region: "Lombardy",
+    region: "Lombardia",
     field: "Literature",
     category: "Writer and Poet",
     blurb:
@@ -137,7 +137,7 @@ const peopleData = [
   },
   {
     name: "Michelangelo",
-    region: "Tuscany",
+    region: "Toscana",
     field: "Art",
     category: "Sculptor, Painter, Architect, and Poet",
     blurb:
@@ -177,7 +177,7 @@ const peopleData = [
   },
   {
     name: "Alessandro Volta",
-    region: "Lombardy",
+    region: "Lombardia",
     field: "Science",
     category: "Physicist",
     blurb:
