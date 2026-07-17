@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Italy Map Activities</title>
 
@@ -11,213 +15,253 @@
 
 <body>
 
-<main class="activity-layout">
+  <main class="activity-layout">
 
-  <aside class="control-panel">
+    <aside class="control-panel">
 
-    <header class="page-header">
+      <header class="page-header">
 
-      <img
-        src="icons/logo.png"
-        alt="First Volo Learning"
-        class="logo"
-      >
+        <img
+          src="icons/logo.png"
+          alt="First Volo Learning"
+          class="logo"
+        >
 
-      <a
-        href="https://firstvololearning.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="website-link"
-      >
-        firstvololearning.com
-      </a>
+        <a
+          href="https://firstvololearning.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="website-link"
+        >
+          firstvololearning.com
+        </a>
 
-      <h1>Italy Map Activities</h1>
+        <h1>Italy Map Activities</h1>
 
-      <p class="subtitle">
-        Discover the Regions of Italy
-      </p>
+        <p class="subtitle">
+          Discover the Regions of Italy
+        </p>
 
-      <div class="mode-buttons" aria-label="Choose an activity">
+        <div
+          class="mode-buttons"
+          aria-label="Choose an activity"
+        >
 
-        <button
-          class="mode-button active"
-          data-mode="regions"
-          type="button">
-          Regions
-        </button>
+          <button
+            class="mode-button active"
+            data-mode="regions"
+            type="button"
+          >
+            Regions
+          </button>
 
-        <button
-          class="mode-button"
-          data-mode="landmarks"
-          type="button">
-          Landmarks
-        </button>
+          <button
+            class="mode-button"
+            data-mode="landmarks"
+            type="button"
+          >
+            Landmarks
+          </button>
 
-        <button
-          class="mode-button"
-          data-mode="foods"
-          type="button">
-          Specialties
-        </button>
+          <button
+            class="mode-button"
+            data-mode="foods"
+            type="button"
+          >
+            Specialties
+          </button>
+
+          <a
+            class="mode-button"
+            href="people.html"
+          >
+            Notable Italians
+          </a>
+
+        </div>
+
+      </header>
+
+      <section class="name-panel">
+
+        <h2 id="panelHeading">
+          Region Names
+        </h2>
+
+        <p
+          id="instructions"
+          class="instructions"
+        >
+          Drag a name onto the correct region.
+        </p>
+
+        <div
+          id="cultureBox"
+          class="culture-box"
+          hidden
+        >
+
+          <div class="culture-title">
+            🇮🇹 Regional Spotlight
+          </div>
+
+          <div
+            id="cultureRegion"
+            class="culture-region"
+          >
+          </div>
+
+          <div class="culture-item">
+
+            <div class="culture-item-heading">
+              <span class="culture-bullet">•</span>
+
+              <strong>
+                Historic &amp; Cultural Highlight
+              </strong>
+            </div>
+
+            <div
+              id="cultureHighlight"
+              class="culture-highlight"
+            >
+            </div>
+
+          </div>
+
+          <div
+            id="cultureLanguageSection"
+            class="culture-item"
+            hidden
+          >
+
+            <div class="culture-item-heading">
+              <span class="culture-bullet">•</span>
+
+              <strong>
+                Languages &amp; Dialects
+              </strong>
+            </div>
+
+            <div
+              id="cultureLanguage"
+              class="culture-language"
+            >
+            </div>
+
+          </div>
+
+        </div>
+
+        <div
+          id="regionCards"
+          class="region-cards"
+        >
+        </div>
+
+        <div class="button-row">
+
+          <button
+            id="shuffleButton"
+            type="button"
+          >
+            Shuffle
+          </button>
+
+          <button
+            id="resetButton"
+            type="button"
+          >
+            Reset
+          </button>
+
+        </div>
+
+      </section>
+
+    </aside>
+
+    <section class="map-panel">
+
+      <div class="progress-row">
+
+        <span id="progressText">
+          0 of 20 correct
+        </span>
+
+        <div class="progress-track">
+
+          <div
+            id="progressFill"
+            class="progress-fill"
+          >
+          </div>
+
+        </div>
 
       </div>
 
-    </header>
+      <div
+        id="mapBoard"
+        class="map-board"
+      >
 
-    <section class="name-panel">
+        <img
+          id="italyMap"
+          src="assets/maps/italy.png"
+          alt="Map of the regions of Italy"
+        >
 
-      <h2 id="panelHeading">Region Names</h2>
-
-      <p id="instructions" class="instructions">
-        Drag a name onto the correct region.
-      </p>
-
-      <!-- Regional Spotlight -->
-<!-- Regional Spotlight -->
-
-<div id="cultureBox" class="culture-box" hidden>
-
-  <div class="culture-title">
-    🇮🇹 Regional Spotlight
-  </div>
-
-  <div
-    id="cultureRegion"
-    class="culture-region">
-  </div>
-
-  <div class="culture-item">
-
-    <div class="culture-item-heading">
-      <span class="culture-bullet">•</span>
-      <strong>Historic &amp; Cultural Highlight</strong>
-    </div>
-
-    <div
-      id="cultureHighlight"
-      class="culture-highlight">
-    </div>
-
-  </div>
-
-  <div
-    id="cultureLanguageSection"
-    class="culture-item"
-    hidden>
-
-    <div class="culture-item-heading">
-      <span class="culture-bullet">•</span>
-      <strong>Languages &amp; Dialects</strong>
-    </div>
-
-    <div
-      id="cultureLanguage"
-      class="culture-language">
-    </div>
-
-  </div>
-
-</div>
-
-<div   
-        id="regionCards"
-        class="region-cards">
-      </div>
-
-      <div class="button-row">
-
-        <button
-          id="shuffleButton"
-          type="button">
-          Shuffle
-        </button>
-
-        <button
-          id="resetButton"
-          type="button">
-          Reset
-        </button>
+        <div
+          id="dropZones"
+          class="drop-zones"
+        >
+        </div>
 
       </div>
 
     </section>
 
-  </aside>
+  </main>
 
-  <section class="map-panel">
+  <div
+    id="completionMessage"
+    class="completion-message"
+    hidden
+  >
 
-    <div class="progress-row">
+    <div class="completion-card">
 
-      <span id="progressText">
-        0 of 20 correct
-      </span>
-
-      <div class="progress-track">
-        <div
-          id="progressFill"
-          class="progress-fill">
-        </div>
+      <div class="celebration">
+        🎉
       </div>
 
-    </div>
+      <h2>Fantastico!</h2>
 
-    <div
-      id="mapBoard"
-      class="map-board">
+      <p id="completionText">
+        You matched all 20 Italian regions!
+      </p>
 
-      <img
-        id="italyMap"
-        src="assets/maps/italy.png"
-        alt="Map of the regions of Italy"
+      <button
+        id="playAgainButton"
+        type="button"
       >
-
-      <div
-        id="dropZones"
-        class="drop-zones">
-      </div>
+        Play Again
+      </button>
 
     </div>
-
-  </section>
-
-</main>
-
-<div
-  id="completionMessage"
-  class="completion-message"
-  hidden>
-
-  <div class="completion-card">
-
-    <div class="celebration">
-      🎉
-    </div>
-
-    <h2>Fantastico!</h2>
-
-    <p id="completionText">
-      You matched all 20 Italian regions!
-    </p>
-
-    <button
-      id="playAgainButton"
-      type="button">
-      Play Again
-    </button>
 
   </div>
 
-</div>
+  <div
+    id="confettiContainer"
+    class="confetti-container"
+    aria-hidden="true"
+  >
+  </div>
 
-<div
-  id="confettiContainer"
-  class="confetti-container"
-  aria-hidden="true">
-</div>
-
-<script src="data/italy-data.js"></script>
-<script src="script.js"></script>
+  <script src="data/italy-data.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>

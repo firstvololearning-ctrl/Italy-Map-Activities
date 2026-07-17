@@ -386,27 +386,36 @@ function setGameMode(mode) {
   gameMode = mode;
 
   modeButtons.forEach((button) => {
-    const isActive = button.dataset.mode === mode;
-    button.classList.toggle("active", isActive);
+    button.classList.toggle(
+      "active",
+      button.dataset.mode === mode
+    );
   });
 
   switch (mode) {
     case "landmarks":
-      panelHeading.textContent = "Italian Landmarks";
+      panelHeading.textContent =
+        "Italian Landmarks";
+
       instructions.textContent =
         "Drag each landmark onto its correct region.";
       break;
 
     case "foods":
-      panelHeading.textContent = "Regional Specialties";
+      panelHeading.textContent =
+        "Regional Specialties";
+
       instructions.textContent =
         "Drag each regional specialty onto its correct region.";
       break;
 
     default:
-      panelHeading.textContent = "Region Names";
+      panelHeading.textContent =
+        "Region Names";
+
       instructions.textContent =
         "Drag a name onto the correct region.";
+      break;
   }
 
   resetGame();
@@ -470,4 +479,4 @@ playAgainButton.addEventListener(
   resetGame
 );
 
-resetGame();
+setGameMode("regions");

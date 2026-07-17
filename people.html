@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Notable Italians | First Volo Learning</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="people-page">
+
+  <header class="site-header">
+
+    <a
+      class="back-link"
+      href="index.html">
+      ← Back to Italy Map Activities
+    </a>
+
+    <img
+      class="site-logo"
+      src="icons/logo.png"
+      alt="First Volo Learning"
+    >
+
+  </header>
+
+  <main class="people-main">
+
+    <section class="people-introduction">
+
+      <p class="eyebrow">
+        Italian Culture
+      </p>
+
+      <h1>Notable Italians</h1>
+
+      <h2>Italiani illustri</h2>
+
+      <p class="people-description">
+        Click a person to learn about their region, field,
+        and contributions.
+      </p>
+
+    </section>
+
+    <section class="people-sheet-card">
+
+      <div class="people-board">
+
+        <img
+          class="people-sheet"
+          src="assets/people/people-sheet.png"
+          alt="Clay-style illustrations of twenty notable Italians"
+        >
+
+        <div
+          id="peopleZones"
+          class="people-zones"
+          aria-label="Select a notable Italian">
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="people-actions">
+
+      <a
+        class="primary-button"
+        href="index.html">
+        Explore Italy
+      </a>
+
+      <button
+        class="secondary-button"
+        type="button"
+        disabled
+        aria-disabled="true">
+        Match People to Regions — Coming Soon
+      </button>
+
+    </section>
+
+  </main>
+
+  <div
+    id="personModal"
+    class="person-modal"
+    hidden>
+
+    <div
+      class="person-modal-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="personName"
+      aria-describedby="personBlurb">
+
+      <button
+        id="closePersonModal"
+        class="person-modal-close"
+        type="button"
+        aria-label="Close information card">
+        ×
+      </button>
+
+      <p
+        id="personCategory"
+        class="person-modal-category">
+      </p>
+
+      <h2 id="personName"></h2>
+
+      <div class="person-detail">
+
+        <span class="person-detail-label">
+          Region
+        </span>
+
+        <span id="personRegion"></span>
+
+      </div>
+
+      <div class="person-detail">
+
+        <span class="person-detail-label">
+          Field
+        </span>
+
+        <span id="personField"></span>
+
+      </div>
+
+      <p
+        id="personBlurb"
+        class="person-blurb">
+      </p>
+
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+
+    <p>
+      First Volo Learning
+    </p>
+
+  </footer>
+
+  <script src="people.js"></script>
+
+</body>
+</html>
