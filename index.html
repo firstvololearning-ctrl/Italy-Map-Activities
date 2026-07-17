@@ -11,113 +11,195 @@
 
 <body>
 
-  <main class="activity-layout">
+<main class="activity-layout">
 
-    <aside class="control-panel">
+  <aside class="control-panel">
 
-      <header class="page-header">
-  <img
-    src="icons/logo.png"
-    alt="First Volo Learning"
-    class="logo"
-  >
+    <header class="page-header">
 
-  <a
-    href="https://firstvololearning.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="website-link"
-  >
-    firstvololearning.com
-  </a>
+      <img
+        src="icons/logo.png"
+        alt="First Volo Learning"
+        class="logo"
+      >
 
-  <h1>Italy Map Activities</h1>
+      <a
+        href="https://firstvololearning.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="website-link"
+      >
+        firstvololearning.com
+      </a>
 
-  <p class="subtitle">
-    Discover the Regions of Italy
-  </p>
+      <h1>Italy Map Activities</h1>
 
-  <div class="mode-buttons" aria-label="Choose an activity">
-    <button
-      class="mode-button active"
-      data-mode="regions"
-      type="button"
-    >
-      Regions
-    </button>
-
-    <button
-      class="mode-button"
-      data-mode="landmarks"
-      type="button"
-    >
-      Landmarks
-    </button>
-  </div>
-</header>
-
-      <section class="name-panel">
-        <h2 id="panelHeading">Region Names</h2>
-
-        <p id="instructions" class="instructions">
-          Drag a name onto the correct colored region.
-        </p>
-
-        <div id="regionCards" class="region-cards"></div>
-
-        <div class="button-row">
-          <button id="shuffleButton" type="button">
-            Shuffle
-          </button>
-
-          <button id="resetButton" type="button">
-            Reset
-          </button>
-        </div>
-      </section>
-
-    </aside>
-
-    <section class="map-panel">
-      <div class="progress-row">
-        <span id="progressText">0 of 20 correct</span>
-
-        <div class="progress-track">
-          <div id="progressFill" class="progress-fill"></div>
-        </div>
-      </div>
-
-      <div id="mapBoard" class="map-board">
-        <img
-          id="italyMap"
-          src="assets/maps/italy.png"
-          alt="Map of the regions of Italy"
-        >
-
-        <div id="dropZones" class="drop-zones"></div>
-      </div>
-    </section>
-
-  </main>
-
-  <div id="completionMessage" class="completion-message" hidden>
-    <div class="completion-card">
-      <div class="celebration">🎉</div>
-
-      <h2>Fantastico!</h2>
-
-      <p id="completionText">
-        You matched all 20 Italian regions.
+      <p class="subtitle">
+        Discover the Regions of Italy
       </p>
 
-      <button id="playAgainButton" type="button">
-        Play Again
-      </button>
+      <div class="mode-buttons" aria-label="Choose an activity">
+
+        <button
+          class="mode-button active"
+          data-mode="regions"
+          type="button">
+          Regions
+        </button>
+
+        <button
+          class="mode-button"
+          data-mode="landmarks"
+          type="button">
+          Landmarks
+        </button>
+
+        <button
+          class="mode-button"
+          data-mode="foods"
+          type="button">
+          Specialties
+        </button>
+
+      </div>
+
+    </header>
+
+    <section class="name-panel">
+
+      <h2 id="panelHeading">Region Names</h2>
+
+      <p id="instructions" class="instructions">
+        Drag a name onto the correct colored region.
+      </p>
+
+      <!-- Regional Spotlight -->
+
+      <div id="cultureBox" class="culture-box" hidden>
+
+        <div class="culture-title">
+          🇮🇹 Regional Spotlight
+        </div>
+
+        <div
+          id="cultureRegion"
+          class="culture-region">
+        </div>
+
+        <div
+          id="cultureLanguage"
+          class="culture-language">
+        </div>
+
+        <div
+          id="cultureLocal"
+          class="culture-local">
+        </div>
+
+        <div
+          id="cultureEnglish"
+          class="culture-english">
+        </div>
+
+        <div
+          id="cultureSource"
+          class="culture-source">
+        </div>
+
+      </div>
+
+      <div
+        id="regionCards"
+        class="region-cards">
+      </div>
+
+      <div class="button-row">
+
+        <button
+          id="shuffleButton"
+          type="button">
+          Shuffle
+        </button>
+
+        <button
+          id="resetButton"
+          type="button">
+          Reset
+        </button>
+
+      </div>
+
+    </section>
+
+  </aside>
+
+  <section class="map-panel">
+
+    <div class="progress-row">
+
+      <span id="progressText">
+        0 of 20 correct
+      </span>
+
+      <div class="progress-track">
+        <div
+          id="progressFill"
+          class="progress-fill">
+        </div>
+      </div>
+
     </div>
+
+    <div
+      id="mapBoard"
+      class="map-board">
+
+      <img
+        id="italyMap"
+        src="assets/maps/italy.png"
+        alt="Map of the regions of Italy"
+      >
+
+      <div
+        id="dropZones"
+        class="drop-zones">
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<div
+  id="completionMessage"
+  class="completion-message"
+  hidden>
+
+  <div class="completion-card">
+
+    <div class="celebration">
+      🎉
+    </div>
+
+    <h2>Fantastico!</h2>
+
+    <p id="completionText">
+      You matched all 20 Italian regions.
+    </p>
+
+    <button
+      id="playAgainButton"
+      type="button">
+      Play Again
+    </button>
+
   </div>
 
-  <script src="data/italy-data.js"></script>
-  <script src="script.js"></script>
+</div>
+
+<script src="data/italy-data.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>

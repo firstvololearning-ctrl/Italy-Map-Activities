@@ -91,18 +91,26 @@ function createCards() {
     card.draggable = true;
     card.dataset.id = String(region.id);
 
-    if (gameMode === "landmarks") {
+    const visualMode =
+      gameMode === "landmarks" || gameMode === "foods";
+
+    if (visualMode) {
+      const item =
+        gameMode === "landmarks"
+          ? region.landmark
+          : region.food;
+
       const image = document.createElement("img");
 
       image.className = "card-image";
-      image.src = region.landmark.image;
-      image.alt = region.landmark.name;
+      image.src = item.image;
+      image.alt = item.name;
       image.draggable = false;
 
       const label = document.createElement("span");
 
       label.className = "card-label";
-      label.textContent = region.landmark.name;
+      label.textContent = item.name;
 
       card.append(image, label);
     } else {
@@ -280,12 +288,17 @@ function placeCorrect(zone, region) {
   zone.classList.remove("debug-zone");
   zone.classList.remove("selected-zone");
 
-  if (gameMode === "landmarks") {
+  if (gameMode === "landmarks" || gameMode === "foods") {
+    const item =
+      gameMode === "landmarks"
+        ? region.landmark
+        : region.food;
+
     zone.innerHTML = `
       <img
         class="placed-landmark"
-        src="${region.landmark.image}"
-        alt="${region.landmark.name}"
+        src="${item.image}"
+        alt="${item.name}"
       >
     `;
   } else {
@@ -310,8 +323,31 @@ function placeCorrect(zone, region) {
       completionMessage.hidden = false;
     }, 400);
   }
+  correctCount += 1;
+updateProgress();
+showCulture(region);
 }
+function showCulture(region) {
+  const box = document.querySelector("#cultureBox");
+  const regionName = document.querySelector("#cultureRegion");
+  const language = document.querySelector("#cultureLanguage");
+  const local = document.querySelector("#cultureLocal");
+  const english = document.querySelector("#cultureEnglish");
+  const source = document.querySelector("#cultureSource");
 
+  if (!region.phrase || !region.phrase.local) {
+    box.hidden = true;
+    return;
+  }
+
+  regionName.textContent = region.region;
+  language.textContent = region.phrase.language || "";
+  local.textContent = region.phrase.local || "";
+  english.textContent = region.phrase.english || "";
+  source.textContent = region.phrase.source || "";
+
+  box.hidden = false;
+}
 function showWrong(zone) {
   zone.classList.remove("wrong-shake");
 
@@ -338,24 +374,27 @@ function setGameMode(mode) {
   gameMode = mode;
 
   modeButtons.forEach((button) => {
-    const isActive =
-      button.dataset.mode === mode;
-
+    const isActive = button.dataset.mode === mode;
     button.classList.toggle("active", isActive);
   });
 
-  if (mode === "landmarks") {
-    panelHeading.textContent =
-      "Italian Landmarks";
+  switch (mode) {
+    case "landmarks":
+      panelHeading.textContent = "Italian Landmarks";
+      instructions.textContent =
+        "Drag each landmark onto its correct region.";
+      break;
 
-    instructions.textContent =
-      "Drag each landmark onto its correct region.";
-  } else {
-    panelHeading.textContent =
-      "Region Names";
+    case "foods":
+      panelHeading.textContent = "Regional Specialties";
+      instructions.textContent =
+        "Drag each regional specialty onto its correct region.";
+      break;
 
-    instructions.textContent =
-      "Drag a name onto the correct colored region.";
+    default:
+      panelHeading.textContent = "Region Names";
+      instructions.textContent =
+        "Drag a name onto the correct colored region.";
   }
 
   resetGame();
@@ -365,6 +404,8 @@ function resetGame() {
   correctCount = 0;
   selectedZone = null;
   completionMessage.hidden = true;
+
+  document.querySelector("#cultureBox").hidden = true;
 
   createCards();
   createZones();

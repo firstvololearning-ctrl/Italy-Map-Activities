@@ -14,7 +14,9 @@ button {
   font: inherit;
 }
 
-/* Main layout */
+/* =========================
+   Main layout
+   ========================= */
 
 .activity-layout {
   display: grid;
@@ -31,10 +33,12 @@ button {
   gap: 12px;
 }
 
-/* Branding */
+/* =========================
+   Branding
+   ========================= */
 
 .page-header {
-  padding: 14px;
+  padding: 12px;
   text-align: left;
   border-radius: 18px;
   background: #faf8f2;
@@ -56,12 +60,35 @@ button {
 }
 
 .subtitle {
-  margin: 8px 0 0;
+  margin: 8px 0 4px;
   font-size: 1.05rem;
   color: #4f5e57;
 }
 
-/* Panels */
+.website-link {
+  position: relative;
+  z-index: 5;
+  display: block;
+  width: fit-content;
+  margin: 0 0 14px;
+  color: #805936;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: underline;
+}
+
+.website-link:visited {
+  color: #805936;
+}
+
+.website-link:hover {
+  color: #65442a;
+}
+
+/* =========================
+   Panels
+   ========================= */
 
 .map-panel,
 .name-panel {
@@ -76,10 +103,48 @@ button {
 }
 
 .name-panel {
-  padding: 14px;
+  padding: 10px 12px;
 }
 
-/* Progress bar */
+/* =========================
+   Activity mode buttons
+   ========================= */
+
+.mode-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.mode-button {
+  padding: 8px 10px;
+  border: 2px solid #d9d1c2;
+  border-radius: 10px;
+  background: #fffdf8;
+  color: #24352d;
+  cursor: pointer;
+  font-weight: 800;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.mode-button:hover {
+  background: #f3ede2;
+  transform: translateY(-1px);
+}
+
+.mode-button.active {
+  border-color: #805936;
+  background: #805936;
+  color: white;
+}
+
+/* =========================
+   Progress bar
+   ========================= */
 
 .progress-row {
   display: flex;
@@ -105,7 +170,9 @@ button {
   transition: width 0.3s ease;
 }
 
-/* Map */
+/* =========================
+   Map
+   ========================= */
 
 .map-board {
   position: relative;
@@ -171,32 +238,21 @@ button {
   text-align: center;
   pointer-events: none;
 }
-.mode-buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+
+.placed-landmark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 105px;
+  max-width: 90%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
-.mode-button {
-  padding: 10px 12px;
-  border: 2px solid #d9d1c2;
-  border-radius: 10px;
-  background: #fffdf8;
-  color: #24352d;
-  cursor: pointer;
-  font-weight: 800;
-}
-
-.mode-button:hover {
-  background: #f3ede2;
-}
-
-.mode-button.active {
-  border-color: #805936;
-  background: #805936;
-  color: white;
-}
-/* Region-name panel */
+/* =========================
+   Activity content panel
+   ========================= */
 
 .name-panel h2 {
   margin: 0 0 4px;
@@ -211,10 +267,171 @@ button {
   font-size: 14px;
 }
 
+/* =========================
+   Regional Spotlight
+   ========================= */
+
+.culture-box {
+  position: relative;
+  overflow: hidden;
+  margin: 14px 0 18px;
+  padding: 18px 16px 20px;
+  border: 2px solid #e8c15a;
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at top center,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0) 42%
+    ),
+    linear-gradient(
+      180deg,
+      #fffdf3 0%,
+      #fff7db 55%,
+      #fff2c9 100%
+    );
+  box-shadow:
+    0 0 18px rgba(232, 193, 90, 0.28),
+    0 7px 16px rgba(77, 59, 26, 0.12);
+  text-align: center;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.culture-box::before {
+  content: "";
+  position: absolute;
+  top: -42px;
+  left: 50%;
+  width: 180px;
+  height: 90px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.52);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.culture-box:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 25px rgba(232, 193, 90, 0.4),
+    0 10px 22px rgba(77, 59, 26, 0.16);
+}
+
+.culture-box[hidden] {
+  display: none;
+}
+
+.culture-title {
+  position: relative;
+  margin: 0 0 10px;
+  color: #946500;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+/*
+Use this class for the dynamic region name:
+Campania, Toscana, Sardegna, etc.
+*/
+
+.culture-region {
+  position: relative;
+  margin: 0 0 10px;
+  color: #274b84;
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.culture-language {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 7px;
+  padding: 4px 9px;
+  border: 1px solid rgba(148, 101, 0, 0.25);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  color: #76623c;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.culture-local {
+  position: relative;
+  margin: 5px 0 0;
+  color: #24352d;
+  font-size: 1.7rem;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1.22;
+}
+
+.culture-english {
+  position: relative;
+  margin-top: 7px;
+  color: #5f5a4e;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.culture-source {
+  position: relative;
+  margin-top: 10px;
+  color: #80745f;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* Optional message shown before a spotlight is unlocked */
+
+.culture-placeholder {
+  position: relative;
+  margin: 6px 0 0;
+  color: #6e634e;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Brief visual pop when new spotlight content appears */
+
+.culture-box.spotlight-reveal {
+  animation: spotlightReveal 0.45s ease;
+}
+
+@keyframes spotlightReveal {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.96);
+  }
+
+  65% {
+    transform: scale(1.025);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   Draggable cards
+   ========================= */
+
 .region-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(135px, 1fr));
-  gap: 8px;
+  gap: 6px;
 }
 
 .region-card {
@@ -253,6 +470,7 @@ button {
 .region-card.matched {
   display: none;
 }
+
 .card-image {
   display: block;
   width: 100%;
@@ -275,7 +493,9 @@ button {
   flex-direction: column;
 }
 
-/* Buttons */
+/* =========================
+   Buttons
+   ========================= */
 
 .button-row {
   display: flex;
@@ -304,7 +524,9 @@ button {
   transform: translateY(-1px);
 }
 
-/* Incorrect-answer animation */
+/* =========================
+   Incorrect-answer animation
+   ========================= */
 
 .wrong-shake {
   animation: wrongShake 0.35s ease;
@@ -325,7 +547,9 @@ button {
   }
 }
 
-/* Completion message */
+/* =========================
+   Completion message
+   ========================= */
 
 .completion-message {
   position: fixed;
@@ -359,7 +583,9 @@ button {
   font-size: 54px;
 }
 
-/* Developer and debug tools */
+/* =========================
+   Developer and debug tools
+   ========================= */
 
 .debug-zone {
   border-color: rgba(0, 0, 0, 0.45);
@@ -390,11 +616,17 @@ button {
     0 0 18px rgba(213, 43, 30, 0.5);
 }
 
-/* Tablet */
+/* =========================
+   Tablet
+   ========================= */
 
 @media (max-width: 1050px) {
   .activity-layout {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: minmax(360px, 390px) minmax(800px, 1fr);
+    gap: 16px;
+    width: min(1800px, 98%);
+    margin: 12px auto;
   }
 
   .control-panel {
@@ -416,7 +648,9 @@ button {
   }
 }
 
-/* Smaller tablets */
+/* =========================
+   Smaller tablets
+   ========================= */
 
 @media (max-width: 750px) {
   .activity-layout {
@@ -439,7 +673,9 @@ button {
   }
 }
 
-/* Phones */
+/* =========================
+   Phones
+   ========================= */
 
 @media (max-width: 480px) {
   .page-header,
@@ -461,7 +697,25 @@ button {
   }
 
   .name-panel h2 {
-    font-size: 23px;
+    margin: 0 0 2px;
+    font-size: 24px;
+  }
+
+  .culture-box {
+    padding: 16px 12px 18px;
+    border-radius: 16px;
+  }
+
+  .culture-title {
+    font-size: 1rem;
+  }
+
+  .culture-region {
+    font-size: 1.3rem;
+  }
+
+  .culture-local {
+    font-size: 1.5rem;
   }
 
   .region-card {
@@ -473,34 +727,4 @@ button {
     padding: 3px 5px;
     font-size: 8px;
   }
-}
-.placed-landmark {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 105px;
-  max-width: 90%;
-  height: auto;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.website-link {
-  display: block;
-  width: fit-content;
-  margin: 0 0 14px;
-  color: #805936;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.2;
-  text-decoration: underline;
-  position: relative;
-  z-index: 5;
-}
-
-.website-link:visited {
-  color: #805936;
-}
-
-.website-link:hover {
-  color: #65442a;
 }
