@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 }
@@ -20,7 +21,7 @@ button {
 
 .activity-layout {
   display: grid;
-  grid-template-columns: 320px minmax(700px, 1fr);
+  grid-template-columns: 370px minmax(700px, 1fr);
   align-items: start;
   gap: 16px;
   width: min(1500px, 97%);
@@ -38,31 +39,30 @@ button {
    ========================= */
 
 .page-header {
-  padding: 12px;
-  text-align: left;
+  padding: 16px 18px 18px;
   border-radius: 18px;
   background: #faf8f2;
   box-shadow: 0 8px 24px rgba(48, 54, 49, 0.1);
+  text-align: left;
+}
+
+.page-header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(26px, 2vw, 35px);
+  line-height: 0.92;
+  font-weight: 800;
 }
 
 .logo {
   display: block;
-  width: 72px;
-  height: auto;
-  margin: 0 0 8px;
-}
-
-.page-header h1 {
-  margin: 0;
-  font-size: clamp(26px, 2.2vw, 38px);
-  line-height: 1.05;
-  font-weight: 800;
+  width: 90px;
+  margin: 0 auto 4px;
 }
 
 .subtitle {
-  margin: 8px 0 4px;
-  font-size: 1.05rem;
+  margin: 0 0 18px;
   color: #4f5e57;
+  font-size: 1.05rem;
 }
 
 .website-link {
@@ -70,7 +70,7 @@ button {
   z-index: 5;
   display: block;
   width: fit-content;
-  margin: 0 0 14px;
+  margin: 0 auto 20px;
   color: #805936;
   font-size: 14px;
   font-weight: 700;
@@ -103,7 +103,7 @@ button {
 }
 
 .name-panel {
-  padding: 10px 12px;
+  padding: 12px 14px;
 }
 
 /* =========================
@@ -112,23 +112,22 @@ button {
 
 .mode-buttons {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 6px;
+  width: 100%;
 }
 
 .mode-button {
-  padding: 8px 10px;
+  min-width: 0;
+  padding: 8px 4px;
   border: 2px solid #d9d1c2;
-  border-radius: 10px;
+  border-radius: 15px;
   background: #fffdf8;
   color: #24352d;
   cursor: pointer;
+  font-size: 0.84rem;
   font-weight: 800;
-  transition:
-    background 0.18s ease,
-    border-color 0.18s ease,
-    color 0.18s ease,
-    transform 0.18s ease;
+  white-space: nowrap;
 }
 
 .mode-button:hover {
@@ -323,7 +322,8 @@ button {
 .culture-box[hidden] {
   display: none;
 }
-   .culture-item {
+
+.culture-item {
   margin-top: 16px;
   text-align: left;
 }
@@ -613,17 +613,8 @@ button {
 
 @media (max-width: 1050px) {
   .activity-layout {
-    display: grid;
-    grid-template-columns: minmax(360px, 390px) minmax(800px, 1fr);
-    gap: 16px;
-    width: min(1800px, 98%);
-    margin: 12px auto;
-  }
-
-  .control-panel {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    align-items: start;
+    grid-template-columns: 350px minmax(650px, 1fr);
+    width: min(1400px, 98%);
   }
 
   .page-header {
@@ -631,7 +622,28 @@ button {
   }
 
   .logo {
-    margin: 0 auto 8px;
+    margin-bottom: 6px;
+  }
+}
+
+/* =========================
+   Smaller tablets
+   ========================= */
+
+@media (max-width: 850px) {
+  .activity-layout {
+    grid-template-columns: 1fr;
+    width: min(760px, 96%);
+  }
+
+  .control-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .map-panel {
+    grid-row: 2;
   }
 
   .region-cards {
@@ -640,10 +652,10 @@ button {
 }
 
 /* =========================
-   Smaller tablets
+   Phones
    ========================= */
 
-@media (max-width: 750px) {
+@media (max-width: 600px) {
   .activity-layout {
     width: 100%;
     margin: 8px auto;
@@ -656,23 +668,8 @@ button {
   .page-header,
   .map-panel,
   .name-panel {
-    border-radius: 0;
-  }
-
-  .region-cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* =========================
-   Phones
-   ========================= */
-
-@media (max-width: 480px) {
-  .page-header,
-  .map-panel,
-  .name-panel {
     padding: 12px;
+    border-radius: 0;
   }
 
   .logo {
@@ -685,6 +682,10 @@ button {
 
   .subtitle {
     font-size: 1rem;
+  }
+
+  .mode-buttons {
+    grid-template-columns: 1fr;
   }
 
   .name-panel h2 {
@@ -705,8 +706,8 @@ button {
     font-size: 1.3rem;
   }
 
-  .culture-local {
-    font-size: 1.5rem;
+  .region-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .region-card {
