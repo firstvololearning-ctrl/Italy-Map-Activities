@@ -323,6 +323,46 @@ button {
 .culture-box[hidden] {
   display: none;
 }
+   .culture-item {
+  margin-top: 16px;
+  text-align: left;
+}
+
+.culture-item-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin-bottom: 6px;
+  color: #7a5200;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.culture-item-heading strong {
+  font-weight: 800;
+}
+
+.culture-bullet {
+  flex: 0 0 auto;
+  font-size: 1.2rem;
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.culture-highlight,
+.culture-language {
+  margin-left: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: #24352d;
+  font-size: 0.98rem;
+  font-weight: 400;
+  line-height: 1.45;
+  text-transform: none;
+}
 
 .culture-title {
   position: relative;
@@ -333,11 +373,6 @@ button {
   letter-spacing: 0.01em;
 }
 
-/*
-Use this class for the dynamic region name:
-Campania, Toscana, Sardegna, etc.
-*/
-
 .culture-region {
   position: relative;
   margin: 0 0 10px;
@@ -345,50 +380,6 @@ Campania, Toscana, Sardegna, etc.
   font-size: 1.45rem;
   font-weight: 800;
   line-height: 1.15;
-}
-
-.culture-language {
-  position: relative;
-  display: inline-block;
-  margin: 0 0 7px;
-  padding: 4px 9px;
-  border: 1px solid rgba(148, 101, 0, 0.25);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.58);
-  color: #76623c;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.culture-local {
-  position: relative;
-  margin: 5px 0 0;
-  color: #24352d;
-  font-size: 1.7rem;
-  font-style: italic;
-  font-weight: 800;
-  line-height: 1.22;
-}
-
-.culture-english {
-  position: relative;
-  margin-top: 7px;
-  color: #5f5a4e;
-  font-size: 1rem;
-  font-style: italic;
-  line-height: 1.35;
-}
-
-.culture-source {
-  position: relative;
-  margin-top: 10px;
-  color: #80745f;
-  font-size: 0.8rem;
-  font-weight: 700;
-  line-height: 1.3;
 }
 
 /* Optional message shown before a spotlight is unlocked */

@@ -70,45 +70,57 @@
       <h2 id="panelHeading">Region Names</h2>
 
       <p id="instructions" class="instructions">
-        Drag a name onto the correct colored region.
+        Drag a name onto the correct region.
       </p>
 
       <!-- Regional Spotlight -->
+<!-- Regional Spotlight -->
 
-      <div id="cultureBox" class="culture-box" hidden>
+<div id="cultureBox" class="culture-box" hidden>
 
-        <div class="culture-title">
-          🇮🇹 Regional Spotlight
-        </div>
+  <div class="culture-title">
+    🇮🇹 Regional Spotlight
+  </div>
 
-        <div
-          id="cultureRegion"
-          class="culture-region">
-        </div>
+  <div
+    id="cultureRegion"
+    class="culture-region">
+  </div>
 
-        <div
-          id="cultureLanguage"
-          class="culture-language">
-        </div>
+  <div class="culture-item">
 
-        <div
-          id="cultureLocal"
-          class="culture-local">
-        </div>
+    <div class="culture-item-heading">
+      <span class="culture-bullet">•</span>
+      <strong>Historic &amp; Cultural Highlight</strong>
+    </div>
 
-        <div
-          id="cultureEnglish"
-          class="culture-english">
-        </div>
+    <div
+      id="cultureHighlight"
+      class="culture-highlight">
+    </div>
 
-        <div
-          id="cultureSource"
-          class="culture-source">
-        </div>
+  </div>
 
-      </div>
+  <div
+    id="cultureLanguageSection"
+    class="culture-item"
+    hidden>
 
-      <div
+    <div class="culture-item-heading">
+      <span class="culture-bullet">•</span>
+      <strong>Languages &amp; Dialects</strong>
+    </div>
+
+    <div
+      id="cultureLanguage"
+      class="culture-language">
+    </div>
+
+  </div>
+
+</div>
+
+<div   
         id="regionCards"
         class="region-cards">
       </div>
@@ -185,7 +197,7 @@
     <h2>Fantastico!</h2>
 
     <p id="completionText">
-      You matched all 20 Italian regions.
+      You matched all 20 Italian regions!
     </p>
 
     <button
@@ -196,6 +208,12 @@
 
   </div>
 
+</div>
+
+<div
+  id="confettiContainer"
+  class="confetti-container"
+  aria-hidden="true">
 </div>
 
 <script src="data/italy-data.js"></script>

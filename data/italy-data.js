@@ -11,6 +11,10 @@ const italyData = [
       name: "Monte Cervino",
       image: "assets/landmarks/landmark-16.png"
     },
+    language:
+      "French is also an official language. Valdôtain is also spoken.",
+    highlight:
+      "🏔️ Valle d'Aosta is home to Monte Bianco (Mont Blanc), the highest mountain in the Alps.",
     x: 9.5,
     y: 13.3
   },
@@ -26,6 +30,10 @@ const italyData = [
       name: "Basilica di Superga",
       image: "assets/landmarks/landmark-20.png"
     },
+    language:
+      "Piedmontese, Occitan, and Franco-Provençal are also spoken.",
+    highlight:
+      "🍇 The Langhe-Roero and Monferrato are famous for their vineyards and world-class wines.",
     x: 13.5,
     y: 20.3
   },
@@ -41,11 +49,9 @@ const italyData = [
       name: "Cinque Terre",
       image: "assets/landmarks/landmark-23.png"
     },
-    phrase: {
-      local: "Belìn!",
-      english: "Wow!",
-      language: "Ligurian"
-    },
+    language: "Ligurian is widely spoken.",
+    highlight:
+      "🌊 Cinque Terre is famous for its colorful villages perched on steep seaside cliffs.",
     x: 22.9,
     y: 28.3
   },
@@ -61,6 +67,9 @@ const italyData = [
       name: "Duomo di Milano",
       image: "assets/landmarks/landmark-24.png"
     },
+    language: "Lombard is widely spoken.",
+    highlight:
+      "🎨 The Last Supper, painted by Leonardo da Vinci, is in Milan.",
     x: 29.7,
     y: 14.7
   },
@@ -76,6 +85,10 @@ const italyData = [
       name: "Tre Cime di Lavaredo",
       image: "assets/landmarks/landmark-14.png"
     },
+    language:
+      "German is also an official language. Ladin is also spoken.",
+    highlight:
+      "⛰️ The Dolomites are among the world's most spectacular mountain ranges.",
     x: 43.3,
     y: 7.3
   },
@@ -91,6 +104,9 @@ const italyData = [
       name: "Basilica di San Marco",
       image: "assets/landmarks/landmark-17.png"
     },
+    language: "Venetian is widely spoken.",
+    highlight:
+      "🚣 Venice is built on more than 100 small islands connected by canals and bridges.",
     x: 48.9,
     y: 15.9
   },
@@ -106,11 +122,10 @@ const italyData = [
       name: "Castello di Miramare",
       image: "assets/landmarks/landmark-26.png"
     },
-    phrase: {
-      local: "Mandi!",
-      english: "Hello! / Goodbye!",
-      language: "Friulian"
-    },
+    language:
+      "Friulian, Slovene, and German are also spoken.",
+    highlight:
+      "🏛️ Aquileia was once one of the largest cities in the Roman Empire.",
     x: 60.4,
     y: 11.2
   },
@@ -126,6 +141,8 @@ const italyData = [
       name: "Due Torri",
       image: "assets/landmarks/landmark-11.png"
     },
+    highlight:
+      "🎓 The University of Bologna is the oldest continuously operating university in the Western world.",
     x: 40.3,
     y: 25.1
   },
@@ -141,12 +158,8 @@ const italyData = [
       name: "Duomo di Firenze",
       image: "assets/landmarks/landmark-04.png"
     },
-    phrase: {
-      local: "…e quindi uscimmo a riveder le stelle.",
-      english: "…and then we emerged to see the stars again.",
-      language: "Literary Italian",
-      source: "Dante Alighieri, Inferno"
-    },
+    highlight:
+      "🎨 Florence is known as the birthplace of the Renaissance.",
     x: 40.5,
     y: 35.2
   },
@@ -162,6 +175,8 @@ const italyData = [
       name: "Basilica di San Francesco",
       image: "assets/landmarks/landmark-15.png"
     },
+    highlight:
+      "⛪ Assisi is the hometown of Saint Francis.",
     x: 50.4,
     y: 39.8
   },
@@ -177,6 +192,8 @@ const italyData = [
       name: "Palazzo Ducale di Urbino",
       image: "assets/landmarks/landmark-10.png"
     },
+    highlight:
+      "🏰 Urbino is one of Italy's best-preserved Renaissance cities.",
     x: 58.4,
     y: 36.5
   },
@@ -192,11 +209,10 @@ const italyData = [
       name: "Colosseum",
       image: "assets/landmarks/landmark-01.png"
     },
-    phrase: {
-      local: "Aò!",
-      english: "Hey!",
-      language: "Romanesco"
-    },
+    language:
+      "Romanesco is spoken in Rome and nearby areas.",
+    highlight:
+      "🏛️ Rome was the heart of the ancient Roman Empire.",
     x: 51.1,
     y: 49.4
   },
@@ -212,6 +228,8 @@ const italyData = [
       name: "Gran Sasso",
       image: "assets/landmarks/landmark-05.png"
     },
+    highlight:
+      "🏔️ Gran Sasso is the highest mountain in the Apennine Mountains.",
     x: 63,
     y: 45.2
   },
@@ -227,6 +245,10 @@ const italyData = [
       name: "Castello Monforte",
       image: "assets/landmarks/landmark-27.png"
     },
+    language:
+      "Molise Croatian is still spoken in a few communities.",
+    highlight:
+      "🔔 Agnone is home to one of the world's oldest bell foundries.",
     x: 69.8,
     y: 51.6
   },
@@ -242,11 +264,9 @@ const italyData = [
       name: "Mount Vesuvius",
       image: "assets/landmarks/landmark-19.png"
     },
-    phrase: {
-      local: "Jamme!",
-      english: "Let's go!",
-      language: "Neapolitan"
-    },
+    language: "Neapolitan is widely spoken.",
+    highlight:
+      "🏺 Pompeii, Herculaneum, and Oplontis are home to some of the world's best-preserved ancient Roman ruins.",
     x: 68.8,
     y: 59.2
   },
@@ -262,6 +282,10 @@ const italyData = [
       name: "Alberobello Trulli",
       image: "assets/landmarks/landmark-08.png"
     },
+    language:
+      "Griko is still spoken in parts of Salento.",
+    highlight:
+      "🛖 Alberobello is famous for its unique stone houses called trulli.",
     x: 85.3,
     y: 58.2
   },
@@ -277,6 +301,8 @@ const italyData = [
       name: "Sassi di Matera",
       image: "assets/landmarks/landmark-12.png"
     },
+    highlight:
+      "🏘️ Matera is famous for the ancient cave dwellings known as the Sassi.",
     x: 80.2,
     y: 63.4
   },
@@ -292,6 +318,10 @@ const italyData = [
       name: "Tropea",
       image: "assets/landmarks/landmark-25.png"
     },
+    language:
+      "Greko is still spoken in a few communities.",
+    highlight:
+      "🏺 The Riace Bronzes are among the world's finest ancient Greek sculptures.",
     x: 82.6,
     y: 73.6
   },
@@ -307,11 +337,10 @@ const italyData = [
       name: "Su Nuraxi",
       image: "assets/landmarks/landmark-07.png"
     },
-    phrase: {
-      local: "Ajò!",
-      english: "Let's go!",
-      language: "Sardinian"
-    },
+    language:
+      "Sardinian is widely spoken. Catalan, Gallurese, and Sassarese are also spoken.",
+    highlight:
+      "🗿 Su Nuraxi is one of Europe's best-preserved prehistoric archaeological sites.",
     x: 17.4,
     y: 65
   },
@@ -327,6 +356,9 @@ const italyData = [
       name: "Mount Etna",
       image: "assets/landmarks/landmark-06.png"
     },
+    language: "Sicilian is widely spoken.",
+    highlight:
+      "🌋 Mount Etna is one of the world's most active volcanoes.",
     x: 57.8,
     y: 88.8
   }

@@ -315,38 +315,50 @@ function placeCorrect(zone, region) {
 
   matchingCard?.remove();
 
-  correctCount += 1;
-  updateProgress();
-
-  if (correctCount === regions.length) {
-    window.setTimeout(() => {
-      completionMessage.hidden = false;
-    }, 400);
-  }
-  correctCount += 1;
+correctCount += 1;
 updateProgress();
-showCulture(region);
-}
-function showCulture(region) {
-  const box = document.querySelector("#cultureBox");
-  const regionName = document.querySelector("#cultureRegion");
-  const language = document.querySelector("#cultureLanguage");
-  const local = document.querySelector("#cultureLocal");
-  const english = document.querySelector("#cultureEnglish");
-  const source = document.querySelector("#cultureSource");
 
-  if (!region.phrase || !region.phrase.local) {
-    box.hidden = true;
-    return;
+showRegionalSpotlight(region);
+
+if (correctCount === regions.length) {
+  window.setTimeout(() => {
+    completionMessage.hidden = false;
+    launchConfetti();
+  }, 400);
+}
+
+}   // <-- THIS closes placeCorrect()
+function showRegionalSpotlight(region) {
+
+  const cultureBox =
+    document.getElementById("cultureBox");
+
+  const cultureRegion =
+    document.getElementById("cultureRegion");
+
+  const cultureHighlight =
+    document.getElementById("cultureHighlight");
+
+  const cultureLanguage =
+    document.getElementById("cultureLanguage");
+
+  const cultureLanguageSection =
+    document.getElementById("cultureLanguageSection");
+
+  cultureRegion.textContent = region.region;
+
+  cultureHighlight.textContent =
+    region.highlight || "";
+
+  if (region.language) {
+    cultureLanguage.textContent = region.language;
+    cultureLanguageSection.hidden = false;
+  } else {
+    cultureLanguageSection.hidden = true;
   }
 
-  regionName.textContent = region.region;
-  language.textContent = region.phrase.language || "";
-  local.textContent = region.phrase.local || "";
-  english.textContent = region.phrase.english || "";
-  source.textContent = region.phrase.source || "";
+  cultureBox.hidden = false;
 
-  box.hidden = false;
 }
 function showWrong(zone) {
   zone.classList.remove("wrong-shake");
@@ -394,7 +406,7 @@ function setGameMode(mode) {
     default:
       panelHeading.textContent = "Region Names";
       instructions.textContent =
-        "Drag a name onto the correct colored region.";
+        "Drag a name onto the correct region.";
   }
 
   resetGame();
