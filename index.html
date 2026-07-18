@@ -8,7 +8,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Italy Map Activities</title>
+  <title>Attività sulla Mappa d'Italia | Italy Map Activities</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -36,15 +36,20 @@
           firstvololearning.com
         </a>
 
-        <h1>Italy Map Activities</h1>
+        <h1>Attività sulla Mappa d'Italia</h1>
+
+        <p class="english-title">
+          Italy Map Activities
+        </p>
 
         <p class="subtitle">
-          Discover the Regions of Italy
+          <strong>Scopri le regioni d'Italia</strong>
+          <span>Discover the Regions of Italy</span>
         </p>
 
         <div
           class="mode-buttons"
-          aria-label="Choose an activity"
+          aria-label="Scegli un'attività / Choose an activity"
         >
 
           <button
@@ -52,7 +57,9 @@
             data-mode="regions"
             type="button"
           >
-            Regions
+            <span class="mode-icon" aria-hidden="true">🇮🇹</span>
+            <strong>Regioni</strong>
+            <span class="english-support">Regions</span>
           </button>
 
           <button
@@ -60,7 +67,9 @@
             data-mode="landmarks"
             type="button"
           >
-            Landmarks
+            <span class="mode-icon" aria-hidden="true">🏛️</span>
+            <strong>Monumenti</strong>
+            <span class="english-support">Landmarks</span>
           </button>
 
           <button
@@ -68,14 +77,28 @@
             data-mode="foods"
             type="button"
           >
-            Specialties
+            <span class="mode-icon" aria-hidden="true">🍝</span>
+            <strong>Specialità regionali</strong>
+            <span class="english-support">Regional Specialties</span>
+          </button>
+
+          <button
+            class="mode-button"
+            data-mode="music"
+            type="button"
+          >
+            <span class="mode-icon" aria-hidden="true">🎵</span>
+            <strong>Musica</strong>
+            <span class="english-support">Music</span>
           </button>
 
           <a
-            class="mode-button"
+            class="mode-button people-mode-link"
             href="people.html"
           >
-            Notable Italians
+            <span class="mode-icon" aria-hidden="true">👥</span>
+            <strong>Italiani famosi</strong>
+            <span class="english-support">Notable Italians</span>
           </a>
 
         </div>
@@ -85,15 +108,30 @@
       <section class="name-panel">
 
         <h2 id="panelHeading">
-          Region Names
+          <strong>Regioni</strong>
+          <span>Regions</span>
         </h2>
 
         <p
           id="instructions"
           class="instructions"
         >
-          Drag a name onto the correct region.
+          <strong>Abbina ogni regione alla posizione corretta sulla mappa.</strong>
+          <span>Match each region to its correct location on the map.</span>
         </p>
+
+        <div
+          id="musicIntroduction"
+          class="music-introduction"
+          hidden
+        >
+          <span class="music-introduction-icon">🎵</span>
+
+          <p>
+            <strong>Clicca su una regione della mappa per scoprire una canzone legata alla sua lingua, storia o tradizione musicale.</strong>
+            <span>Click a region on the map to discover a song connected with its language, history, or musical traditions.</span>
+          </p>
+        </div>
 
         <div
           id="cultureBox"
@@ -102,7 +140,8 @@
         >
 
           <div class="culture-title">
-            🇮🇹 Regional Spotlight
+            🇮🇹 Focus regionale
+            <span>Regional Spotlight</span>
           </div>
 
           <div
@@ -117,7 +156,8 @@
               <span class="culture-bullet">•</span>
 
               <strong>
-                Historic &amp; Cultural Highlight
+                Storia e cultura
+                <span>Historic &amp; Cultural Highlight</span>
               </strong>
             </div>
 
@@ -139,7 +179,8 @@
               <span class="culture-bullet">•</span>
 
               <strong>
-                Languages &amp; Dialects
+                Lingue e dialetti
+                <span>Languages &amp; Dialects</span>
               </strong>
             </div>
 
@@ -159,20 +200,25 @@
         >
         </div>
 
-        <div class="button-row">
+        <div
+          id="gameButtons"
+          class="button-row"
+        >
 
           <button
             id="shuffleButton"
             type="button"
           >
-            Shuffle
+            <strong>Mescola</strong>
+            <span>Shuffle</span>
           </button>
 
           <button
             id="resetButton"
             type="button"
           >
-            Reset
+            <strong>Ricomincia</strong>
+            <span>Reset</span>
           </button>
 
         </div>
@@ -183,10 +229,14 @@
 
     <section class="map-panel">
 
-      <div class="progress-row">
+      <div
+        id="progressRow"
+        class="progress-row"
+      >
 
         <span id="progressText">
-          0 of 20 correct
+          <strong>0 di 20 corrette</strong>
+          <span>0 of 20 correct</span>
         </span>
 
         <div class="progress-track">
@@ -209,7 +259,7 @@
         <img
           id="italyMap"
           src="assets/maps/italy.png"
-          alt="Map of the regions of Italy"
+          alt="Mappa delle regioni d'Italia / Map of the regions of Italy"
         >
 
         <div
@@ -239,15 +289,59 @@
       <h2>Fantastico!</h2>
 
       <p id="completionText">
-        You matched all 20 Italian regions!
+        <strong>Hai trovato tutte le 20 regioni d'Italia!</strong>
+        <span>You matched all 20 Italian regions!</span>
       </p>
 
       <button
         id="playAgainButton"
         type="button"
       >
-        Play Again
+        <strong>Gioca ancora!</strong>
+        <span>Play Again</span>
       </button>
+
+    </div>
+
+  </div>
+
+  <div
+    id="musicModal"
+    class="music-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="musicModalRegion"
+    hidden
+  >
+
+    <div class="music-modal-card">
+
+      <button
+        id="musicModalClose"
+        class="music-modal-close"
+        type="button"
+        aria-label="Chiudi / Close music window"
+      >
+        ×
+      </button>
+
+      <div class="music-modal-eyebrow">
+        Esplora l'Italia attraverso la musica
+        <span>Explore Italy Through Music</span>
+      </div>
+
+      <h2 id="musicModalRegion"></h2>
+
+      <div
+        id="musicSongList"
+        class="music-song-list"
+      >
+      </div>
+
+      <p class="music-link-note">
+        <strong>YouTube si apre in una nuova scheda. Gli insegnanti devono controllare i contenuti collegati prima di condividerli con gli studenti.</strong>
+        <span>YouTube opens in a new tab. Teachers should preview linked content before sharing it with students.</span>
+      </p>
 
     </div>
 
