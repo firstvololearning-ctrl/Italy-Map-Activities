@@ -87,7 +87,7 @@ const tourismLinksByRegion = {
   },
 
   Veneto: {
-    region: "https://www.veneto.eu/",
+    region: "https://www.veneto.eu/en/",
     food: "https://www.veneto.eu/EN/Food_and_wine/"
   },
 
@@ -117,7 +117,7 @@ const tourismLinksByRegion = {
   },
 
   Lazio: {
-    region: "https://www.visitlazio.com/",
+    region: "https://www.visitlazio.com/en",
     food: "https://www.visitlazio.com/enogastronomia/"
   },
 
@@ -132,7 +132,7 @@ const tourismLinksByRegion = {
   },
 
   Campania: {
-    region: "https://www.campaniartecard.it/",
+    region: "https://www.italia.it/en/campania",
     food: "https://www.italia.it/en/campania/things-to-do/food-and-wine"
   },
 
