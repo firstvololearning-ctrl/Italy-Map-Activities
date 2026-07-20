@@ -1,0 +1,303 @@
+/* ==================================================
+   CONTEMPORARY MUSIC MAP CIRCLES
+================================================== */
+
+.contemporary-music-zones {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+
+/*
+  This overrides any game-state styling inherited
+  from the regular .drop-zone class.
+*/
+
+.drop-zone.contemporary-music-zone {
+  position: absolute;
+
+  display: grid;
+  place-items: center;
+
+  width: 54px;
+  height: 54px;
+  padding: 0;
+
+  transform: translate(-50%, -50%);
+
+  border: 2px solid rgba(126, 92, 57, 0.35);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.35);
+
+  box-shadow: none;
+
+  cursor: pointer;
+  pointer-events: auto;
+
+  transition:
+    transform 0.16s ease,
+    background 0.16s ease,
+    border-color 0.16s ease;
+}
+
+
+.drop-zone.contemporary-music-zone:hover,
+.drop-zone.contemporary-music-zone:focus-visible {
+  z-index: 20;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.08);
+
+  background: rgba(255, 255, 255, 0.8);
+  border-color: #8d6139;
+}
+
+
+.drop-zone.contemporary-music-zone:focus-visible {
+  z-index: 20;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.12);
+
+  background: #704827;
+
+  outline: 4px solid #f1c65e;
+  outline-offset: 3px;
+}
+
+
+.contemporary-zone-icon {
+  font-size: 18px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+
+/* ==================================================
+   CONTEMPORARY MUSIC INFORMATION BOX
+================================================== */
+
+.contemporary-information-box {
+  display: block;
+}
+
+
+/* ==================================================
+   REGION HEADING IN MODAL
+================================================== */
+
+#musicModalRegion span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #6b756f;
+
+  font-size: 0.42em;
+  font-style: italic;
+  font-weight: 700;
+}
+
+
+/* ==================================================
+   ARTIST CARDS
+================================================== */
+
+.contemporary-artist-card h3 {
+  margin: 0 0 8px;
+
+  color: #24382f;
+
+  font-size: 1.45rem;
+}
+
+
+.contemporary-artist-location {
+  margin: 0 0 7px;
+
+  color: #7b5736;
+
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+
+.contemporary-artist-role {
+  margin: 0;
+
+  color: #53625b;
+
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+
+.contemporary-artist-section {
+  margin-top: 17px;
+}
+
+
+.contemporary-artist-section h4 {
+  margin: 0 0 8px;
+
+  color: #815833;
+
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+
+.contemporary-artist-section h4 span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #6b756f;
+
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: 600;
+
+  text-transform: none;
+}
+
+
+/* ==================================================
+   GENRE LABELS
+================================================== */
+
+.contemporary-genre-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.contemporary-genre-list li {
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: #eee5d8;
+
+  color: #34483e;
+
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+
+/* ==================================================
+   SONG LINKS
+================================================== */
+
+.contemporary-song-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+
+.contemporary-song-list li {
+  margin: 9px 0;
+}
+
+
+.contemporary-song-list a {
+  color: #28518c;
+
+  font-size: 1rem;
+  font-weight: 800;
+
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+
+.contemporary-song-list a:hover {
+  color: #805531;
+}
+
+
+.contemporary-song-list a:focus-visible {
+  border-radius: 4px;
+
+  outline: 3px solid rgba(40, 81, 140, 0.25);
+  outline-offset: 3px;
+}
+
+
+.contemporary-english-text {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #6b756f;
+
+  font-style: italic;
+}
+
+
+/* ==================================================
+   SMALLER SCREENS
+================================================== */
+
+@media (max-width: 900px) {
+
+  .drop-zone.contemporary-music-zone {
+    width: 52px;
+    height: 52px;
+
+    border-width: 3px;
+  }
+
+
+  .contemporary-zone-icon {
+    font-size: 22px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .drop-zone.contemporary-music-zone {
+    width: 42px;
+    height: 42px;
+
+    border-width: 3px;
+  }
+
+
+  .contemporary-zone-icon {
+    font-size: 18px;
+  }
+
+
+  .contemporary-artist-card h3 {
+    font-size: 1.25rem;
+  }
+
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .drop-zone.contemporary-music-zone {
+    transition: none;
+  }
+
+}

@@ -9,13 +9,14 @@
   >
 
   <title>
-    Italiani famosi | Notable Italians | First Volo Learning
+    Musica contemporanea d'Italia | Contemporary Music of Italy
   </title>
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contemporary-music.css">
 </head>
 
-<body class="people-page">
+<body>
 
   <main class="activity-layout">
 
@@ -39,20 +40,20 @@
         </a>
 
         <h1>
-          Italiani famosi
+          Musica contemporanea d'Italia
         </h1>
 
         <p class="english-title">
-          Notable Italians
+          Contemporary Music of Italy
         </p>
 
         <p class="subtitle">
           <strong>
-            Scopri personaggi importanti della cultura italiana
+            Scopri gli artisti contemporanei d'Italia
           </strong>
 
           <span>
-            Discover Important Figures from Italian Culture
+            Discover Contemporary Artists from Italy
           </span>
         </p>
 
@@ -98,8 +99,9 @@
           </a>
 
           <a
-            class="mode-button"
+            class="mode-button active"
             href="contemporary-music.html"
+            aria-current="page"
           >
             <span class="mode-icon" aria-hidden="true">🎤</span>
             <strong>Musica contemporanea</strong>
@@ -107,9 +109,8 @@
           </a>
 
           <a
-            class="mode-button active"
+            class="mode-button"
             href="people.html"
-            aria-current="page"
           >
             <span class="mode-icon" aria-hidden="true">👥</span>
             <strong>Italiani famosi</strong>
@@ -124,44 +125,44 @@
 
         <h2 id="panelHeading">
           <strong>
-            Scegli una persona
+            Scegli una regione
           </strong>
 
           <span>
-            Choose a Person
+            Choose a Region
           </span>
         </h2>
 
-        <div class="music-introduction people-introduction-box">
+        <div class="music-introduction">
 
           <span
             class="music-introduction-icon"
             aria-hidden="true"
           >
-            👥
+            🎤
           </span>
 
           <p>
             <strong>
-              Clicca su una persona per scoprire la sua regione,
-              il suo ambito e i suoi contributi.
+              Clicca su un cerchio della mappa per scoprire gli
+              artisti contemporanei legati a quella regione.
             </strong>
 
             <span>
-              Click a person to learn about their region,
-              field, and contributions.
+              Click a circle on the map to discover contemporary
+              artists connected with that region.
             </span>
           </p>
 
         </div>
 
-        <div class="culture-box people-information-box">
+        <div class="culture-box contemporary-information-box">
 
           <div class="culture-title">
-            🇮🇹 Esplora le persone
+            🎧 Esplora la musica
 
             <span>
-              Explore the People
+              Explore the Music
             </span>
           </div>
 
@@ -174,10 +175,10 @@
               </span>
 
               <strong>
-                Regione
+                Artisti e canzoni
 
                 <span>
-                  Region
+                  Artists and Songs
                 </span>
               </strong>
 
@@ -186,11 +187,11 @@
             <div class="culture-highlight">
 
               <strong>
-                Scopri il legame di ogni persona con una regione d'Italia.
+                Scopri artisti contemporanei legati a ogni regione.
               </strong>
 
               <span>
-                Discover each person's connection with an Italian region.
+                Discover contemporary artists connected with each region.
               </span>
 
             </div>
@@ -206,10 +207,10 @@
               </span>
 
               <strong>
-                Ambito e contributi
+                Collegamenti a YouTube
 
                 <span>
-                  Field and Contributions
+                  YouTube Links
                 </span>
               </strong>
 
@@ -218,11 +219,11 @@
             <div class="culture-language">
 
               <strong>
-                Scopri perché ogni persona è importante.
+                Clicca su una canzone per cercarla su YouTube.
               </strong>
 
               <span>
-                Learn why each person is important.
+                Click a song to search for it on YouTube.
               </span>
 
             </div>
@@ -235,48 +236,24 @@
 
     </aside>
 
-    <section class="map-panel people-map-panel">
+    <section class="map-panel">
 
-      <div class="people-sheet-card">
+      <div
+        id="mapBoard"
+        class="map-board"
+      >
 
-        <div class="people-board">
+        <img
+          id="italyMap"
+          src="assets/maps/italy.png"
+          alt="Mappa delle regioni d'Italia / Map of the regions of Italy"
+        >
 
-          <img
-            class="people-sheet"
-            src="assets/people/people-sheet.png"
-            alt="Illustrazioni di venti italiani famosi / Illustrations of twenty notable Italians"
-          >
-
-          <div
-            id="peopleZones"
-            class="people-zones"
-            aria-label="Scegli un italiano famoso / Select a notable Italian"
-          >
-          </div>
-
+        <div
+          id="dropZones"
+          class="drop-zones contemporary-music-zones"
+        >
         </div>
-
-      </div>
-
-      <div class="people-actions">
-
-        <a
-          class="primary-button"
-          href="index.html?mode=regions"
-        >
-          Esplora l'Italia
-          <span>Explore Italy</span>
-        </a>
-
-        <button
-          class="secondary-button"
-          type="button"
-          disabled
-          aria-disabled="true"
-        >
-          Abbina le persone alle regioni
-          <span>Coming Soon</span>
-        </button>
 
       </div>
 
@@ -285,77 +262,63 @@
   </main>
 
   <div
-    id="personModal"
-    class="person-modal"
+    id="musicModal"
+    class="music-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="musicModalRegion"
     hidden
   >
 
-    <div
-      class="person-modal-card"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="personName"
-      aria-describedby="personBlurb"
-    >
+    <div class="music-modal-card">
 
       <button
-        id="closePersonModal"
-        class="person-modal-close"
+        id="musicModalClose"
+        class="music-modal-close"
         type="button"
-        aria-label="Chiudi / Close information card"
+        aria-label="Chiudi / Close music window"
       >
         ×
       </button>
 
-      <p
-        id="personCategory"
-        class="person-modal-category"
+      <div class="music-modal-eyebrow">
+        Musica contemporanea d'Italia
+
+        <span>
+          Contemporary Music of Italy
+        </span>
+      </div>
+
+      <h2 id="musicModalRegion"></h2>
+
+      <div
+        id="musicSongList"
+        class="music-song-list"
       >
-      </p>
+      </div>
 
-      <h2 id="personName"></h2>
+      <p class="music-link-note">
 
-     <div class="person-detail">
+        <strong>
+          YouTube si apre in una nuova scheda. Gli insegnanti devono
+          controllare i contenuti collegati prima di condividerli con
+          gli studenti.
+        </strong>
 
-  <span class="person-detail-label">
-    Regione
-    <small>Region</small>
-  </span>
+        <span>
+          YouTube opens in a new tab. Teachers should preview linked
+          content before sharing it with students.
+        </span>
 
-  <span id="personRegion"></span>
-
-</div>
-
-<div class="person-detail">
-
-  <span class="person-detail-label">
-    Ambito
-    <small>Field</small>
-  </span>
-
-  <span id="personField"></span>
-
-</div>
-
-      <p
-        id="personBlurb"
-        class="person-blurb"
-      >
       </p>
 
     </div>
 
   </div>
 
-  <footer class="site-footer">
-
-    <p>
-      First Volo Learning
-    </p>
-
-  </footer>
-
-  <script src="people.js"></script>
+  <script src="data/italy-data.js"></script>
+  <script src="data/music-data.js"></script>
+  <script src="contemporary-music.js"></script>
 
 </body>
 </html>

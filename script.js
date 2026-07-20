@@ -992,17 +992,21 @@ function setGameMode(mode) {
       break;
 
     case "music":
-      panelHeading.innerHTML = `
-        <strong>Musica d'Italia</strong>
-        <span>Music of Italy</span>
-      `;
+  panelHeading.innerHTML = `
+    <strong>Musica tradizionale d'Italia</strong>
+    <span>Traditional &amp; Folk Music of Italy</span>
+  `;
 
-      instructions.innerHTML = `
-        <strong>Scegli una regione per ascoltare una o più canzoni.</strong>
-        <span>Choose a region to hear one or more featured songs.</span>
-      `;
+  instructions.innerHTML = `
+    <strong>
+      Scegli una regione per ascoltare una o più canzoni tradizionali.
+    </strong>
+    <span>
+      Choose a region to hear one or more traditional songs.
+    </span>
+  `;
 
-      break;
+  break;
 
     default:
       panelHeading.innerHTML = `
@@ -1266,4 +1270,20 @@ musicModal.addEventListener(
   }
 );
 
-setGameMode("regions");
+const requestedMode =
+  new URLSearchParams(
+    window.location.search
+  ).get("mode");
+
+const validModes = [
+  "regions",
+  "landmarks",
+  "foods",
+  "music"
+];
+
+setGameMode(
+  validModes.includes(requestedMode)
+    ? requestedMode
+    : "regions"
+);

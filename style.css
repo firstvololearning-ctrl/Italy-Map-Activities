@@ -1430,47 +1430,68 @@ button {
 .drop-zone.music-zone {
   display: grid;
   place-items: center;
-  width: 9.5%;
-  border: 2px solid rgba(128, 89, 54, 0.18);
-  background: rgba(255, 253, 248, 0.16);
+
+  width: 6.5%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  border: 2px solid #d8cfbf;
+  background: #fffdf8;
+  box-shadow: 0 3px 10px rgba(0,0,0,.18);
+
   cursor: pointer;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease,
+    background .18s ease;
 }
 
 .drop-zone.music-zone::after {
-  content: "♪";
-  display: grid;
-  place-items: center;
-  width: 32%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: rgba(128, 89, 54, 0.86);
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
-  color: white;
-  font-size: clamp(9px, 1vw, 16px);
-  font-weight: 900;
-  opacity: 0;
-  transform: scale(0.75);
-  transition:
-    opacity 0.18s ease,
-    transform 0.18s ease;
+  content: "🎵";
+
+  color: #805936;
+  font-size: clamp(15px, 1.5vw, 24px);
+  line-height: 1;
+
+  opacity: 1;
+  transform: none;
+
+  transition: transform .18s ease;
+}
+
+.drop-zone.music-zone:hover,
+.drop-zone.music-zone:focus-visible {
+  border-color: #805936;
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 4px rgba(128,89,54,.15),
+    0 6px 16px rgba(0,0,0,.22);
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.12);
+
+  outline: none;
+}
+
+.drop-zone.music-zone:hover::after,
+.drop-zone.music-zone:focus-visible::after {
+  transform: scale(1.08);
 }
 
 .drop-zone.music-zone:hover,
 .drop-zone.music-zone:focus-visible {
   z-index: 20;
   border-color: #805936;
-  background: rgba(255, 248, 226, 0.48);
-  box-shadow:
-    0 0 0 4px rgba(128, 89, 54, 0.16),
-    0 5px 14px rgba(0, 0, 0, 0.12);
+background: rgba(255, 248, 226, .75);
+box-shadow:
+  0 0 0 5px rgba(243,194,58,.30),
+  0 6px 18px rgba(0,0,0,.28);
   outline: none;
   transform: translate(-50%, -50%) scale(1.08);
-}
-
-.drop-zone.music-zone:hover::after,
-.drop-zone.music-zone:focus-visible::after {
-  opacity: 1;
-  transform: scale(1);
 }
 
 .music-modal {
@@ -1920,4 +1941,123 @@ body.music-modal-open {
   .region-name-english {
     font-size: 0.64rem;
   }
+}
+/* ==================================================
+   CONTEMPORARY MUSIC PAGE
+================================================== */
+
+.music-region-zone {
+  display: grid;
+  place-items: center;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.music-region-zone::after {
+content: "🎵";
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(128, 89, 54, 0.9);
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+opacity: 1;
+transform: scale(1);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.music-region-zone:hover,
+.music-region-zone:focus-visible {
+  border-color: rgba(128, 89, 54, 0.65);
+  background: rgba(255, 250, 232, 0.4);
+  outline: none;
+}
+
+.music-region-zone:hover::after,
+.music-region-zone:focus-visible::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.artist-card h3 {
+  margin-bottom: 6px;
+}
+
+.music-artist-location {
+  margin: 0 0 12px;
+  color: #5c675f;
+  font-weight: 700;
+}
+
+.music-song-detail {
+  margin: 8px 0;
+}
+
+.music-song-detail strong,
+.music-song-detail span {
+  display: inline;
+  margin-right: 5px;
+}
+
+.music-song-detail span {
+  color: #6a746d;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.music-song-section {
+  margin-top: 16px;
+}
+
+.music-song-section h4 {
+  margin: 0 0 8px;
+}
+
+.music-song-section h4 span {
+  display: block;
+  color: #6a746d;
+  font-size: 0.82em;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.music-song-links {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.music-song-links li {
+  margin: 8px 0;
+}
+
+.music-song-links a {
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+#musicModalRegion span {
+  display: block;
+  margin-top: 3px;
+  color: #6a746d;
+  font-size: 0.5em;
+  font-style: italic;
+}
+.mode-buttons {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.mode-button {
+  text-decoration: none;
+}
+
+.mode-button:link,
+.mode-button:visited {
+  color: inherit;
 }
