@@ -2,7 +2,32 @@
 
 const DEBUG_ZONES = false;
 const DEVELOPER_MODE = false;
+const FOOD_FALLBACK =
+  "https://www.italia.it/en/italy/things-to-do/food-and-wine";
 
+const foodLinks = {
+  "Bagna Càuda": FOOD_FALLBACK,
+  "Fonduta Valdostana": FOOD_FALLBACK,
+  "Trofie al Pesto Genovese": FOOD_FALLBACK,
+  "Risotto alla Milanese": FOOD_FALLBACK,
+  "Canederli allo Speck": FOOD_FALLBACK,
+  "Baccalà Mantecato": FOOD_FALLBACK,
+  "Polenta Friulana": FOOD_FALLBACK,
+  "Tagliatelle al Ragù": FOOD_FALLBACK,
+  "Bistecca alla Fiorentina": FOOD_FALLBACK,
+  "Strangozzi al Tartufo": FOOD_FALLBACK,
+  "Olive all'Ascolana": FOOD_FALLBACK,
+  "Pampanella": FOOD_FALLBACK,
+  "Sfogliatella": FOOD_FALLBACK,
+  "Orecchiette con le cime di rapa": FOOD_FALLBACK,
+  "Strascinati con Peperoni Cruschi": FOOD_FALLBACK,
+  "Fileja alla 'Nduja": FOOD_FALLBACK,
+  "Arancini": FOOD_FALLBACK,
+  "Cannolo Siciliano": FOOD_FALLBACK,
+  "Pane Carasau":
+    "https://www.italia.it/en/sardinia/things-to-do/history-of-the-typical-sardinian-carasau-bread",
+  "Culurgiones": FOOD_FALLBACK
+};
 const regions = italyData;
 
 const regionNamesEnglish = {
@@ -30,6 +55,165 @@ const regionNamesEnglish = {
 
 function getEnglishRegionName(regionName) {
   return regionNamesEnglish[regionName] || regionName;
+}
+/* =========================================================
+   OFFICIAL TOURISM LINKS
+   ========================================================= */
+
+const tourismLinksByRegion = {
+  "Valle d'Aosta": {
+    region: "https://www.lovevda.it/en",
+    food: "https://www.lovevda.it/en/food-and-wine"
+  },
+
+  Piemonte: {
+    region: "https://www.visitpiemonte.com/en",
+    food: "https://www.visitpiemonte.com/en/taste"
+  },
+
+  Liguria: {
+    region: "https://lamialiguria.it/en/",
+    food: "https://lamialiguria.it/en/food-and-wine/"
+  },
+
+  Lombardia: {
+    region: "https://www.in-lombardia.it/en",
+    food: "https://www.in-lombardia.it/en/visiting-lombardy/food-and-wine-tourism-lombardy"
+  },
+
+  "Trentino-Alto Adige": {
+    region: "https://www.visittrentino.info/en",
+    food: "https://www.visittrentino.info/en/articles/food-and-wine"
+  },
+
+  Veneto: {
+    region: "https://www.veneto.eu/",
+    food: "https://www.veneto.eu/EN/Food_and_wine/"
+  },
+
+  "Friuli-Venezia Giulia": {
+    region: "https://www.turismofvg.it/en",
+    food: "https://www.turismofvg.it/en/food-and-wine"
+  },
+
+  "Emilia-Romagna": {
+    region: "https://emiliaromagnaturismo.it/en",
+    food: "https://emiliaromagnaturismo.it/en/food-valley"
+  },
+
+  Toscana: {
+    region: "https://www.visittuscany.com/en/",
+    food: "https://www.visittuscany.com/en/flavors/"
+  },
+
+  Umbria: {
+    region: "https://www.umbriatourism.it/en",
+    food: "https://www.umbriatourism.it/en/food-and-wine"
+  },
+
+  Marche: {
+    region: "https://www.letsmarche.it/en",
+    food: "https://www.letsmarche.it/en/food-and-wine"
+  },
+
+  Lazio: {
+    region: "https://www.visitlazio.com/",
+    food: "https://www.visitlazio.com/enogastronomia/"
+  },
+
+  Abruzzo: {
+    region: "https://abruzzoturismo.it/en",
+    food: "https://abruzzoturismo.it/en/food-and-wine"
+  },
+
+  Molise: {
+    region: "https://www.visitmolise.eu/",
+    food: "https://www.visitmolise.eu/enogastronomia/"
+  },
+
+  Campania: {
+    region: "https://www.campaniartecard.it/",
+    food: "https://www.italia.it/en/campania/things-to-do/food-and-wine"
+  },
+
+  Puglia: {
+    region: "https://visit.puglia.it/en",
+    food: "https://visit.puglia.it/en/food-and-wine"
+  },
+
+  Basilicata: {
+    region: "https://www.basilicataturistica.it/en/",
+    food: "https://www.basilicataturistica.it/en/food-and-wine/"
+  },
+
+  Calabria: {
+    region: "https://calabriastraordinaria.it/en/",
+    food: "https://calabriastraordinaria.it/en/food-and-wine"
+  },
+
+  Sicilia: {
+    region: "https://www.visitsicily.info/en/",
+    food: "https://www.visitsicily.info/en/flavours/"
+  },
+
+  Sardegna: {
+    region: "https://www.sardegnaturismo.it/en",
+    food: "https://www.sardegnaturismo.it/en/explore/culinary-traditions"
+  }
+};
+function updateTourismLink(region) {
+  const section = document.querySelector("#tourismLinkSection");
+  const link = document.querySelector("#tourismLink");
+  const italianText = document.querySelector("#tourismLinkItalian");
+  const englishText = document.querySelector("#tourismLinkEnglish");
+
+  const links = tourismLinksByRegion[region.region];
+
+  if (
+    !section ||
+    !link ||
+    !italianText ||
+    !englishText ||
+    !links
+  ) {
+    if (section) {
+      section.hidden = true;
+    }
+    return;
+  }
+
+  const englishRegion =
+    getEnglishRegionName(region.region);
+
+  if (gameMode === "foods") {
+
+    link.href =
+      foodLinks[region.food.name] || FOOD_FALLBACK;
+
+    italianText.textContent =
+      "Scopri questo piatto";
+
+    englishText.textContent =
+      "Discover this dish";
+
+  } else if (gameMode === "regions") {
+
+    link.href = links.region;
+
+    italianText.textContent =
+      `Scopri ${region.region}`;
+
+    englishText.textContent =
+      `Discover ${englishRegion}`;
+
+  } else {
+
+    section.hidden = true;
+    return;
+
+  }
+
+  section.hidden = false;
 }
 
 let gameMode = "regions";
@@ -889,7 +1073,7 @@ function showRegionalSpotlight(
     cultureLanguageSection.hidden =
       true;
   }
-
+updateTourismLink(region);
   cultureBox.hidden = false;
 
   cultureBox.classList.remove(

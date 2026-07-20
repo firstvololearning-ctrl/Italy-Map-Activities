@@ -2061,3 +2061,59 @@ transform: scale(1);
 .mode-button:visited {
   color: inherit;
 }
+/* =========================
+   Official tourism link
+   ========================= */
+
+.tourism-link-section {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(148, 101, 0, 0.2);
+  text-align: center;
+}
+
+.tourism-link-section[hidden] {
+  display: none;
+}
+
+.tourism-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 11px 14px;
+  border: 2px solid #274b84;
+  border-radius: 12px;
+  background: #274b84;
+  color: white;
+  text-decoration: none;
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.tourism-link:hover,
+.tourism-link:focus-visible {
+  background: #1e3d6d;
+  transform: translateY(-1px);
+}
+
+.tourism-link strong {
+  font-size: 0.95rem;
+}
+
+.tourism-link > span {
+  font-size: 0.8rem;
+}
+
+.tourism-link-section small {
+  display: block;
+  margin-top: 7px;
+  color: #6e634e;
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+
+.tourism-link-section small span {
+  display: block;
+}
