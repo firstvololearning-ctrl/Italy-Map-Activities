@@ -161,6 +161,147 @@ const tourismLinksByRegion = {
     food: "https://www.sardegnaturismo.it/en/explore/culinary-traditions"
   }
 };
+const featuredArticlesByRegion = {
+  "Valle d'Aosta": {
+    title:
+      "Landscapes of the Aosta Valley",
+    url:
+      "https://www.italia.it/en/aosta-valley/things-to-do/landscapes-of-the-aosta-valley"
+  },
+
+  Piemonte: {
+    title:
+      "Hills and Villages of Monferrato",
+    url:
+      "https://www.italia.it/en/piedmont/things-to-do/hills-villages-monferrato-what-to-do-see"
+  },
+
+  Liguria: {
+    title:
+      "Three Villages in the Gulf of Poets",
+    url:
+      "https://www.italia.it/en/liguria/things-to-do/villages-to-visit-in-gulf-of-poets"
+  },
+
+  Lombardia: {
+    title:
+      "Five Lakes to Discover in Lombardy",
+    url:
+      "https://www.italia.it/en/lombardy/things-to-do/5-lakes-to-discover-in-lombardy"
+  },
+
+  "Trentino-Alto Adige": {
+    title:
+      "Garda Trentino: What to Do and See",
+    url:
+      "https://www.italia.it/en/trentino/things-to-do/garda-trentino-what-do-see"
+  },
+
+  Veneto: {
+    title:
+      "Murano and the Art of Glass",
+    url:
+      "https://www.italia.it/en/veneto/venice/murano/things-to-do/murano-and-the-glass-art"
+  },
+
+  "Friuli-Venezia Giulia": {
+    title:
+      "Grado, Aquileia and Cormons",
+    url:
+      "https://www.italia.it/en/friuli-venezia-giulia/things-to-do/3-friuli-villages-see-grado-aquileia-cormons"
+  },
+
+  "Emilia-Romagna": {
+    title:
+      "Three Villages of Romagna",
+    url:
+      "https://www.italia.it/en/emilia-romagna/things-to-do/holidays-romagna-villages-relaxation-culture"
+  },
+
+  Toscana: {
+    title:
+      "Val d'Orcia",
+    url:
+      "https://www.italia.it/en/tuscany/things-to-do/val-orcia"
+  },
+
+  Umbria: {
+    title:
+      "The Villages of Lake Trasimeno",
+    url:
+      "https://www.italia.it/en/umbria/things-to-do/visit-umbria-lake-trasimeno-villages"
+  },
+
+  Marche: {
+    title:
+      "The Marche Through Olive Groves and Mills",
+    url:
+      "https://www.italia.it/en/marche/things-to-do/the-marche-through-olive-groves-and-mills"
+  },
+
+  Lazio: {
+    title:
+      "Viterbo and the Tuscia Viterbese",
+    url:
+      "https://www.italia.it/en/lazio/viterbo-and-tuscia-viterbese"
+  },
+
+  Abruzzo: {
+    title:
+      "Landscapes of Abruzzo",
+    url:
+      "https://www.italia.it/en/abruzzo/things-to-do/landscapes-of-abruzzo"
+  },
+
+  Molise: {
+    title:
+      "An Itinerary of Art, Culture and Taste",
+    url:
+      "https://www.italia.it/en/molise/things-to-do/itinerary-in-molise-of-art-culture-and-taste"
+  },
+
+  Campania: {
+    title:
+      "Landscapes of Campania",
+    url:
+      "https://www.italia.it/en/campania/things-to-do/landscapes-of-campania"
+  },
+
+  Puglia: {
+    title:
+      "A Nine-Day Road Trip Through Puglia",
+    url:
+      "https://www.italia.it/en/puglia/things-to-do/puglia-road-trip-9-day-itinerary"
+  },
+
+  Basilicata: {
+    title:
+      "Basilicata Coast to Coast",
+    url:
+      "https://www.italia.it/en/basilicata/things-to-do/basilicata-itineraries"
+  },
+
+  Calabria: {
+    title:
+      "The Orange Flag Villages of Calabria",
+    url:
+      "https://www.italia.it/en/calabria/things-to-do/itinerary-among-the-orange-flag-villages-in-calabria"
+  },
+
+  Sicilia: {
+    title:
+      "Taormina: A Natural Terrace Over the Sea",
+    url:
+      "https://www.italia.it/en/sicily/taormina/guide-history-facts"
+  },
+
+  Sardegna: {
+    title:
+      "The Sulcis Archipelago",
+    url:
+      "https://www.italia.it/en/sardinia/things-to-do/sulcis-archipelago-what-do-see-sardinia"
+  }
+};
 function updateTourismLink(region) {
   const section = document.querySelector("#tourismLinkSection");
   const link = document.querySelector("#tourismLink");
@@ -168,14 +309,25 @@ function updateTourismLink(region) {
   const englishText = document.querySelector("#tourismLinkEnglish");
 
   const links = tourismLinksByRegion[region.region];
+const articleLink =
+  document.querySelector("#featuredArticleLink");
+const articleItalian =
+  document.querySelector("#featuredArticleItalian");
 
-  if (
-    !section ||
-    !link ||
-    !italianText ||
-    !englishText ||
-    !links
-  ) {
+const articleEnglish =
+  document.querySelector("#featuredArticleEnglish");
+const article =
+  featuredArticlesByRegion[region.region];
+if (
+  !section ||
+  !link ||
+  !articleLink ||
+  !articleItalian ||
+  !articleEnglish ||
+  !italianText ||
+  !englishText ||
+  !links
+) {
     if (section) {
       section.hidden = true;
     }
@@ -195,16 +347,27 @@ function updateTourismLink(region) {
 
     englishText.textContent =
       "Discover this dish";
-
+articleLink.hidden = true;
   } else if (gameMode === "regions") {
 
-    link.href = links.region;
+link.href = links.region;
 
-    italianText.textContent =
-      `Scopri ${region.region}`;
+italianText.textContent =
+  `Scopri ${region.region}`;
 
-    englishText.textContent =
-      `Discover ${englishRegion}`;
+englishText.textContent =
+  `Discover ${englishRegion}`;
+
+articleLink.hidden = !article;
+
+if (article) {
+  articleLink.href = article.url;
+
+articleItalian.textContent =
+  "📖 Articolo in evidenza";
+  articleEnglish.textContent =
+    article.title;
+}
 
   } else {
 
@@ -262,13 +425,6 @@ const musicModalRegion = document.querySelector(
 const musicSongList = document.querySelector(
   "#musicSongList"
 );
-
-/*
-  These links open carefully targeted YouTube searches.
-
-  Later, you can replace any search URL with a direct official
-  artist, record-label, choir, or cultural-organization video.
-*/
 
 const musicByRegion = {
   "Valle d'Aosta": [
