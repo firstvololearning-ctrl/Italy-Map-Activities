@@ -2561,3 +2561,207 @@ transform: scale(1);
     font-size: 7px;
   }
 }
+/* =========================================================
+   LEONARDO DA VINCI QUOTE
+========================================================= */
+
+.leonardo-quote {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+
+  width: calc(100% - 24px);
+  max-width: none;
+  margin: 10px auto;
+  padding: 10px 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 250, 241, 0.98),
+      rgba(252, 238, 220, 0.96)
+    );
+
+  border: 1px solid rgba(142, 95, 52, 0.18);
+  border-left: 4px solid #274b84;
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 20px rgba(39, 75, 132, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.leonardo-quote-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.leonardo-quote-image img {
+  display: block;
+  width: 100%;
+  max-width: 95px;
+  height: auto;
+  object-fit: contain;
+}
+
+.leonardo-quote-text {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.leonardo-quote-italian,
+.leonardo-quote-english {
+  margin: 0;
+  color: #1f2835;
+}
+
+.leonardo-quote-italian {
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.leonardo-quote-english {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.leonardo-quote-source {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 6px;
+  color: #27364b;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.leonardo-quote-source cite {
+  color: #173158;
+  font-size: 1.08em;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.richter-reference {
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .leonardo-quote {
+    grid-template-columns: 85px minmax(0, 1fr);
+    gap: 12px;
+    width: calc(100% - 20px);
+    padding: 10px 12px;
+  }
+
+  .leonardo-quote-image img {
+    max-width: 80px;
+  }
+
+  .leonardo-quote-italian {
+    font-size: 13px;
+    white-space: normal;
+  }
+
+  .leonardo-quote-english {
+    font-size: 12px;
+  }
+
+  .leonardo-quote-source {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .leonardo-quote {
+    grid-template-columns: 68px minmax(0, 1fr);
+    align-items: start;
+    gap: 9px;
+    width: calc(100% - 14px);
+    margin: 8px auto;
+    padding: 8px;
+    border-left-width: 3px;
+    border-radius: 13px;
+  }
+
+  .leonardo-quote-image {
+    align-self: center;
+  }
+
+  .leonardo-quote-image img {
+    max-width: 65px;
+  }
+
+  .leonardo-quote-italian {
+    font-size: 11px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    white-space: normal;
+  }
+
+  .leonardo-quote-english {
+    margin-top: 4px;
+    font-size: 10px;
+    line-height: 1.25;
+  }
+
+  .leonardo-quote-source {
+    gap: 1px;
+    margin-top: 4px;
+    font-size: 9px;
+  }
+
+  .richter-reference {
+    white-space: normal;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 390px) {
+  .leonardo-quote {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 7px;
+    padding: 7px;
+  }
+
+  .leonardo-quote-image img {
+    max-width: 53px;
+  }
+
+  .leonardo-quote-italian {
+    font-size: 9.5px;
+  }
+
+  .leonardo-quote-english {
+    font-size: 8.5px;
+  }
+
+  .leonardo-quote-source {
+    font-size: 8px;
+  }
+}
