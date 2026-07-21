@@ -45,9 +45,7 @@ button {
   flex-direction: column;
   gap: 12px;
 }
-.tourism-link[hidden] {
-  display: none !important;
-}
+
 /* =========================
    Branding
    ========================= */
@@ -2216,4 +2214,350 @@ transform: scale(1);
 .about-footer a{
   color:#274b84;
   font-weight:700;
+}
+
+/* ==================================================
+   EXPLORE ITALY — FINAL MOBILE OVERRIDES
+   Keep this at the very bottom of style.css
+================================================== */
+
+@media (max-width: 850px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .activity-layout {
+    display: flex;
+    flex-direction: column;
+    width: min(760px, 100%);
+    margin: 8px auto;
+    padding: 0 10px;
+  }
+
+  .control-panel {
+    display: contents;
+  }
+
+  /*
+    Header first, map second, information/cards third.
+  */
+
+  .page-header {
+    order: 1;
+  }
+
+  .map-panel {
+    order: 2;
+    width: 100%;
+  }
+
+  .name-panel {
+    order: 3;
+    width: 100%;
+  }
+
+  .page-header,
+  .map-panel,
+  .name-panel {
+    box-sizing: border-box;
+  }
+
+  .map-board {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .map-board > img {
+    width: 100%;
+    height: auto;
+  }
+
+  /*
+    Keep the six activity choices compact:
+    three buttons per row on tablets.
+  */
+
+  .mode-buttons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .mode-button {
+    min-width: 0;
+    min-height: 66px;
+    padding: 7px 4px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .mode-button strong {
+    font-size: 0.78rem;
+  }
+
+  .mode-button .english-support {
+    font-size: 0.63rem;
+  }
+
+  /*
+    Region and activity cards.
+  */
+
+  .region-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .region-card {
+    min-width: 0;
+  }
+
+  .card-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+
+  /*
+    Buttons below the activity cards.
+  */
+
+  .button-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .button-row button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+
+/* ==================================================
+   EXPLORE ITALY — PHONES
+================================================== */
+
+@media (max-width: 600px) {
+
+  .activity-layout {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-header,
+  .map-panel,
+  .name-panel {
+    width: 100%;
+    padding: 12px;
+    border-radius: 0;
+  }
+
+  .page-header {
+    text-align: center;
+  }
+
+  .logo {
+    width: 68px;
+  }
+
+  .website-link {
+    margin-bottom: 12px;
+  }
+
+  .page-header h1 {
+    font-size: 28px;
+    line-height: 1.05;
+  }
+
+  .english-title {
+    margin-bottom: 10px;
+    font-size: 0.82rem;
+  }
+
+  .subtitle {
+    margin-bottom: 14px;
+  }
+
+  .subtitle strong {
+    font-size: 0.95rem;
+  }
+
+  .subtitle span {
+    font-size: 0.78rem;
+  }
+
+  /*
+    Override your earlier one-column mobile rule.
+    Six buttons become three rows of two.
+  */
+
+  .mode-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .mode-button {
+    min-height: 64px;
+    padding: 7px 3px;
+  }
+
+  .mode-button .mode-icon {
+    font-size: 0.95rem;
+  }
+
+  .mode-button strong {
+    font-size: 0.72rem;
+    line-height: 1.12;
+  }
+
+  .mode-button .english-support {
+    font-size: 0.59rem;
+    line-height: 1.12;
+  }
+
+  /*
+    Give the map nearly the entire screen width.
+  */
+
+  .map-panel {
+    padding: 6px;
+  }
+
+  .map-board {
+    border-radius: 12px;
+  }
+
+  /*
+    Cards remain two per row.
+  */
+
+  .region-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .region-card {
+    min-height: 44px;
+    padding: 6px;
+    font-size: 11px;
+  }
+
+  .region-card:has(.card-image) {
+    min-height: 118px;
+  }
+
+  .card-image {
+    max-height: 82px;
+  }
+
+  .card-label {
+    font-size: 0.72rem;
+  }
+
+  /*
+    Slightly enlarge map targets for touch.
+  */
+
+  .drop-zone {
+    width: 10%;
+  }
+
+  .drop-zone.music-zone {
+    width: 11%;
+  }
+
+  /*
+    Stack controls so their labels do not become cramped.
+  */
+
+  .button-row {
+    grid-template-columns: 1fr;
+  }
+
+  .button-row button {
+    min-height: 46px;
+  }
+
+  .progress-row {
+    gap: 8px;
+  }
+
+  #progressText {
+    min-width: 92px;
+    font-size: 0.8rem;
+  }
+
+  /*
+    Music and information popups.
+  */
+
+  .music-modal,
+  .person-modal,
+  .about-modal {
+    padding: 10px;
+  }
+
+  .music-modal-card,
+  .person-modal-card,
+  .about-card {
+    width: 100%;
+    max-height: calc(100vh - 20px);
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .music-song {
+    padding: 13px;
+  }
+
+  .completion-message {
+    padding: 12px;
+  }
+
+  .completion-card {
+    padding: 24px 18px;
+  }
+}
+
+
+/* ==================================================
+   EXPLORE ITALY — VERY SMALL PHONES
+================================================== */
+
+@media (max-width: 390px) {
+
+  .page-header,
+  .name-panel {
+    padding: 10px;
+  }
+
+  .mode-button {
+    min-height: 61px;
+  }
+
+  .mode-button strong {
+    font-size: 0.68rem;
+  }
+
+  .mode-button .english-support {
+    font-size: 0.55rem;
+  }
+
+  .region-card:has(.card-image) {
+    min-height: 108px;
+  }
+
+  .card-image {
+    max-height: 72px;
+  }
+
+  .placed-label {
+    padding: 2px 4px;
+    font-size: 7px;
+  }
 }
