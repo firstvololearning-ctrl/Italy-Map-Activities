@@ -4,7 +4,6 @@ const DEBUG_ZONES = false;
 const DEVELOPER_MODE = false;
 const FOOD_FALLBACK =
   "https://www.italia.it/en/italy/things-to-do/food-and-wine";
-
 const foodLinks = {
   "Bagna Càuda": FOOD_FALLBACK,
   "Fonduta Valdostana": FOOD_FALLBACK,
@@ -131,10 +130,10 @@ const tourismLinksByRegion = {
     food: "https://www.visitmolise.eu/enogastronomia/"
   },
 
-  Campania: {
-    region: "https://www.italia.it/en/campania",
-    food: "https://www.italia.it/en/campania/things-to-do/food-and-wine"
-  },
+Campania: {
+  region: "https://www.italia.it/en/campania",
+  food: "https://www.italia.it/en/campania/things-to-do/typical-food-and-dishes-in-campania-italy"
+},
 
   Puglia: {
     region: "https://visit.puglia.it/en",
@@ -302,81 +301,149 @@ const featuredArticlesByRegion = {
       "https://www.italia.it/en/sardinia/things-to-do/sulcis-archipelago-what-do-see-sardinia"
   }
 };
+
 function updateTourismLink(region) {
-  const section = document.querySelector("#tourismLinkSection");
-  const link = document.querySelector("#tourismLink");
-  const italianText = document.querySelector("#tourismLinkItalian");
-  const englishText = document.querySelector("#tourismLinkEnglish");
+  const section =
+    document.querySelector("#tourismLinkSection");
 
-  const links = tourismLinksByRegion[region.region];
-const articleLink =
-  document.querySelector("#featuredArticleLink");
-const articleItalian =
-  document.querySelector("#featuredArticleItalian");
+  const mainLink =
+    document.querySelector("#tourismLink");
 
-const articleEnglish =
-  document.querySelector("#featuredArticleEnglish");
-const article =
-  featuredArticlesByRegion[region.region];
-if (
-  !section ||
-  !link ||
-  !articleLink ||
-  !articleItalian ||
-  !articleEnglish ||
-  !italianText ||
-  !englishText ||
-  !links
-) {
-    if (section) {
-      section.hidden = true;
-    }
+  const mainItalian =
+    document.querySelector("#tourismLinkItalian");
+
+  const mainEnglish =
+    document.querySelector("#tourismLinkEnglish");
+
+  const secondLink =
+    document.querySelector("#featuredArticleLink");
+
+  const secondItalian =
+    document.querySelector("#featuredArticleItalian");
+
+  const secondEnglish =
+    document.querySelector("#featuredArticleEnglish");
+
+  if (
+    !section ||
+    !mainLink ||
+    !mainItalian ||
+    !mainEnglish ||
+    !secondLink ||
+    !secondItalian ||
+    !secondEnglish
+  ) {
     return;
   }
 
-  const englishRegion =
-    getEnglishRegionName(region.region);
+  const regionName = region.region;
 
+  const englishRegionName =
+    getEnglishRegionName(regionName);
+
+  const regionalLinks =
+    tourismLinksByRegion[regionName];
+
+  const featuredArticle =
+    featuredArticlesByRegion[regionName];
+
+  /*
+   * Reset both links before applying
+   * the current activity mode.
+   */
+  section.hidden = true;
+
+  mainLink.hidden = true;
+  secondLink.hidden = true;
+
+  mainLink.removeAttribute("href");
+  secondLink.removeAttribute("href");
+
+  /*
+   * FOODS MODE
+   *
+   * Top:
+   * Main Italy Food & Wine page
+   *
+   * Bottom:
+   * Regional Food & Wine page,
+   * when one exists
+   */
   if (gameMode === "foods") {
+    mainLink.href = FOOD_FALLBACK;
 
-    link.href =
-      foodLinks[region.food.name] || FOOD_FALLBACK;
+    mainItalian.textContent =
+      "Scopri la cucina italiana";
 
-italianText.textContent =
-  "Scopri di più sulla cucina italiana";
+    mainEnglish.textContent =
+      "Explore Food & Wine in Italy";
 
-englishText.textContent =
-  "Explore Italian Food & Wine";
-articleLink.hidden = true;
-  } else if (gameMode === "regions") {
+    mainLink.hidden = false;
 
-link.href = links.region;
+    if (
+      regionalLinks &&
+      regionalLinks.food &&
+      regionalLinks.food !== FOOD_FALLBACK
+    ) {
+      secondLink.href =
+        regionalLinks.food;
 
-italianText.textContent =
-  `Scopri ${region.region}`;
+      secondItalian.textContent =
+        `Scopri la cucina della ${regionName}`;
 
-englishText.textContent =
-  `Discover ${englishRegion}`;
+      secondEnglish.textContent =
+        `Explore Food & Wine in ${englishRegionName}`;
 
-articleLink.hidden = !article;
+      secondLink.hidden = false;
+    }
 
-if (article) {
-  articleLink.href = article.url;
-
-articleItalian.textContent =
-  "📖 Articolo in evidenza";
-  articleEnglish.textContent =
-    article.title;
-}
-
-  } else {
-
-    section.hidden = true;
+    section.hidden = false;
     return;
-
   }
 
-  section.hidden = false;
+  /*
+   * REGIONS MODE
+   *
+   * Top:
+   * Official regional tourism page
+   *
+   * Bottom:
+   * Featured article, when one exists
+   */
+  if (gameMode === "regions") {
+    if (!regionalLinks?.region) {
+      return;
+    }
+
+    mainLink.href =
+      regionalLinks.region;
+
+    mainItalian.textContent =
+      `Scopri ${regionName}`;
+
+    mainEnglish.textContent =
+      `Discover ${englishRegionName}`;
+
+    mainLink.hidden = false;
+
+    if (
+      featuredArticle?.url &&
+      featuredArticle?.title
+    ) {
+      secondLink.href =
+        featuredArticle.url;
+
+      secondItalian.textContent =
+        "📖 Articolo in evidenza";
+
+      secondEnglish.textContent =
+        featuredArticle.title;
+
+      secondLink.hidden = false;
+    }
+
+    section.hidden = false;
+  }
 }
 
 let gameMode = "regions";

@@ -2072,8 +2072,13 @@ transform: scale(1);
   text-align: center;
 }
 
-.tourism-link-section[hidden] {
+.tourism-link-section[hidden],
+.tourism-link[hidden] {
   display: none;
+}
+
+.tourism-link + .tourism-link {
+  margin-top: 10px;
 }
 
 .tourism-link {
